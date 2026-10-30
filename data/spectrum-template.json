@@ -1,0 +1,20 @@
+{
+  "molecule_id": "remplacer-par-id-molecule",
+  "spectrum_type": "uv_vis",
+  "status": "needs_review",
+  "source_name": "À renseigner",
+  "source_url": "À renseigner",
+  "citation": "Auteur(s), titre, publication/dépôt, année, identifiant si disponible",
+  "conditions": {
+    "solvent": null,
+    "concentration": null,
+    "temperature": null,
+    "instrument": null,
+    "resolution": null,
+    "nucleus": null,
+    "frequency_mhz": null
+  },
+  "x_unit": "nm",
+  "y_unit": "Absorbance",
+  "points": []
+}

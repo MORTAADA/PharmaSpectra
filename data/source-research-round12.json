@@ -1,0 +1,52 @@
+{
+  "version": "0.9.33",
+  "purpose": "JCAMP-DX importer compatibility research and validation policy",
+  "findings": [
+    {
+      "name": "readJDX (Bryan Hanson)",
+      "url": "https://bryanhanson.github.io/readJDX/articles/readJDX.html",
+      "type": "open-source JCAMP-DX reader reference",
+      "formats": [
+        "AFFN",
+        "PAC",
+        "SQZ",
+        "DIF",
+        "DUP",
+        "DIFDUP"
+      ],
+      "note": "Documents compressed ASDF decoding; the R package is a candidate for offline conversion/validation, not a browser dependency."
+    },
+    {
+      "name": "JSpecView",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2203984/",
+      "type": "peer-reviewed open-source JCAMP-DX viewer/converter",
+      "formats": [
+        "JCAMP-DX",
+        "XML spectral data"
+      ],
+      "note": "Published capabilities include JCAMP-DX loading, spectral inspection and export; evaluate as a separate conversion/validation tool."
+    },
+    {
+      "name": "IUPAC JCAMP-DX standard",
+      "url": "https://old.iupac.org/jcamp/protocols/dxir01.pdf",
+      "type": "format standard",
+      "formats": [
+        "AFFN",
+        "PAC",
+        "SQZ",
+        "DIF",
+        "DUP",
+        "ASDF"
+      ],
+      "note": "Defines compressed numeric encodings; format documentation is not an experimental spectral source."
+    }
+  ],
+  "current_app_support": {
+    "csv_tsv_txt": "numeric X/Y pairs",
+    "jcamp_xydata": "uncompressed numeric XYDATA",
+    "jcamp_xypoints": "uncompressed numeric XYPOINTS",
+    "jcamp_sqz_dif_dup_asdf": "not supported; rejected explicitly",
+    "ntuple_multiblock": "not validated"
+  },
+  "integration_decision": "No spectra added in this round. Do not label a conversion tool as a source of experimental measurements. A compressed-file decoder must be tested against reference fixtures and NPOINTS/FIRSTX/LASTX/DELTAX and scaling factors before production use."
+}

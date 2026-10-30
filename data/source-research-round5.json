@@ -1,0 +1,94 @@
+{
+  "round": 5,
+  "created": "2026-10-30",
+  "project_version": "0.9.24",
+  "policy": "A source page or downloadable-file listing is not equivalent to locally imported numeric data. No synthetic points are added.",
+  "new_findings": [
+    {
+      "compound": "Paracetamol",
+      "spectrum": "1H NMR 1D experimental",
+      "source": "HMDB",
+      "record_id": "HMDB0001859 / spectrum 2079",
+      "url": "https://hmdb.ca/spectra/nmr_one_d/2079",
+      "conditions": {
+        "solvent": "DMSO-d6",
+        "instrument": "JEOL",
+        "frequency_MHz": 400,
+        "reference": "TMS"
+      },
+      "available_file": "Peak List CSV (279 bytes)",
+      "raw_fid": "not available on this record",
+      "local_import": "not imported; CSV content not retrieved",
+      "classification": "experimental_peak_list_available_not_full_spectrum"
+    },
+    {
+      "compound": "Paracetamol",
+      "spectrum": "13C NMR 1D experimental",
+      "source": "HMDB",
+      "record_id": "HMDB0001859 / spectrum 2773",
+      "url": "https://hmdb.ca/spectra/nmr_one_d/2773",
+      "conditions": {
+        "solvent": "DMSO-d6",
+        "instrument": "JEOL",
+        "frequency_MHz": 22.53,
+        "reference": "TMS"
+      },
+      "available_file": "Peak List CSV (80 bytes)",
+      "raw_fid": "not available on this record",
+      "local_import": "not imported; CSV content not retrieved",
+      "classification": "experimental_peak_list_available_not_full_spectrum"
+    },
+    {
+      "compound": "Paracetamol",
+      "spectrum": "1H NMR 1D experimental, second acquisition",
+      "source": "HMDB",
+      "record_id": "HMDB0001859 / spectrum 1761",
+      "url": "https://hmdb.ca/spectra/nmr_one_d/1761",
+      "conditions": {
+        "solvent": "5% DMSO",
+        "instrument": "Varian",
+        "frequency_MHz": 500,
+        "reference": "DSS",
+        "temperature_C": 25
+      },
+      "available_file": "Peak list and JCAMP-DX and FID are listed by related HMDB mirror BMDB record; verify exact file identity before importing",
+      "local_import": "not imported",
+      "classification": "experimental_external_record_only"
+    },
+    {
+      "compound": "Paracetamol",
+      "spectrum": "1H-13C HSQC 2D experimental",
+      "source": "HMDB",
+      "record_id": "HMDB0001859 / spectrum 1701",
+      "url": "https://hmdb.ca/spectra/nmr_two_d/1701",
+      "conditions": {
+        "solvent": "Water",
+        "instrument": "Bruker",
+        "frequency_MHz": 600,
+        "concentration_mM": 50,
+        "pH": 7,
+        "temperature_C": 25,
+        "reference": "DSS"
+      },
+      "available_file": "TXT chemical shifts; PNG assignments; no FID listed on HMDB page",
+      "local_import": "not imported; 2D data not a replacement for 1D spectra",
+      "classification": "experimental_2d_reference_only"
+    }
+  ],
+  "cross_reference": {
+    "source": "PubChem spectral information",
+    "url": "https://pubchem.ncbi.nlm.nih.gov/docs/spectral-information",
+    "note": "PubChem aggregates spectral annotations and links from NIST, HSDB, HMDB and SpectraBase; it is a discovery/indexing route, not necessarily the primary measurement source."
+  },
+  "bulk_download_note": {
+    "source": "HMDB downloads",
+    "url": "https://www.hmdb.ca/downloads",
+    "note": "HMDB lists bulk NMR FID and peak-list datasets; bulk redistribution for commercial use requires explicit permission and acknowledgment. Large archive size and licensing must be checked before any bulk import."
+  },
+  "integrity_summary": {
+    "new_numeric_curves_imported": 0,
+    "new_peak_lists_imported": 0,
+    "new_reference_records_documented": 4,
+    "reason": "The source search confirms record metadata and file availability, but raw CSV/FID contents were not retrieved and validated in this environment."
+  }
+}

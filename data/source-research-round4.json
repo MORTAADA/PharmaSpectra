@@ -1,0 +1,93 @@
+{
+  "project": "PharmaSpectra",
+  "version": "0.9.23",
+  "research_round": 4,
+  "review_date": "2026-10-30",
+  "purpose": "Documenter des dépôts complémentaires fiables et les formats de données réellement annoncés; ne pas confondre disponibilité d’un dépôt et intégration locale.",
+  "sources": [
+    {
+      "name": "Human Metabolome Database (HMDB) — téléchargements spectraux",
+      "url": "https://www.hmdb.ca/downloads",
+      "source_type": "database_download_portal",
+      "relevant_formats": [
+        "NMR FID",
+        "NMR peak lists TXT",
+        "NMR spectra XML"
+      ],
+      "evidence": "La page officielle annonce des fichiers FID RMN, des listes de pics RMN TXT et des fichiers spectraux XML; édition 2023-07-01 indiquée.",
+      "limitations": "Les archives sont volumineuses; le portail signale des conditions particulières pour la redistribution commerciale. Les fichiers bruts n’ont pas été téléchargés ni intégrés dans cette version.",
+      "status": "source_verified_data_not_imported"
+    },
+    {
+      "name": "MiMeDB — portail de téléchargement",
+      "url": "https://mimedb.org/downloads",
+      "source_type": "database_download_portal",
+      "relevant_formats": [
+        "NMR spectra XML",
+        "NMR peak lists TXT",
+        "NMR FID"
+      ],
+      "evidence": "Le portail annonce des fichiers XML RMN, listes de pics TXT et FID; version publiée le 2025-10-15 selon la page consultée.",
+      "limitations": "La présence d’un format dans le portail ne garantit pas que les 20 médicaments PharmaSpectra y figurent. Aucun fichier de molécule n’a été vérifié ou importé dans cette ronde.",
+      "status": "source_verified_compound_coverage_unverified"
+    },
+    {
+      "name": "SDBS — Spectral Database for Organic Compounds",
+      "url": "https://sdbs.db.aist.go.jp/sdbs/cgi-bin/cre_index.cgi?lang=eng",
+      "source_type": "spectral_database",
+      "relevant_formats": [
+        "IR",
+        "1H NMR",
+        "13C NMR",
+        "Raman",
+        "MS"
+      ],
+      "evidence": "Base de l’AIST décrite comme contenant des spectres originaux pour des composés organiques.",
+      "limitations": "L’accès est principalement via interface web; l’existence d’un spectre pour chaque composé et les possibilités d’export doivent être vérifiées individuellement.",
+      "status": "source_verified_compound_coverage_unverified"
+    },
+    {
+      "name": "IUPAC JCAMP-DX",
+      "url": "https://iupac.org/what-we-do/digital-standards/jcamp-dx/",
+      "source_type": "data_format_standard",
+      "relevant_formats": [
+        "JCAMP-DX"
+      ],
+      "evidence": "IUPAC présente JCAMP-DX comme standard d’échange de données spectrales et référence NIST parmi les sources de fichiers.",
+      "limitations": "Il s’agit d’un standard de format, pas d’une source de mesures pour un médicament donné.",
+      "status": "format_reference"
+    }
+  ],
+  "compound_specific_findings": [
+    {
+      "compound": "Acetaminophen / Paracetamol",
+      "spectrum": "1H NMR experimental",
+      "url": "https://hmdb.ca/spectra/nmr_one_d/2079",
+      "conditions": "400 MHz; DMSO-d6; JEOL; référence TMS",
+      "available_file": "Peak List CSV, 279 bytes annoncé par HMDB",
+      "status": "source_page_metadata_verified_csv_values_not_imported"
+    },
+    {
+      "compound": "Acetaminophen / Paracetamol",
+      "spectrum": "UV/Visible",
+      "url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C103902&Mask=FFFFFF",
+      "conditions": "Solide poudre; échantillon 8.1 mg + 113.5 mg polyéthylène indiqué sur la page; source Lang (éditeur), 1965; Hilger Uvispek",
+      "available_file": "JCAMP-DX annoncé par NIST",
+      "status": "source_metadata_verified_jcamp_not_imported"
+    },
+    {
+      "compound": "Aspirin",
+      "spectrum": "1H NMR experimental",
+      "url": "https://hmdb.ca/spectra/nmr_one_d/1776",
+      "conditions": "600 MHz; H2O; 25.0 mM; 25 °C; pH 7.00; DSS; Bruker",
+      "available_file": "Liste des déplacements chimiques TXT annoncée sur la page",
+      "status": "source_metadata_verified_peaklist_existing_in_project"
+    }
+  ],
+  "integration_summary": {
+    "new_raw_spectra_files_imported": 0,
+    "new_numeric_points_added": 0,
+    "new_experimental_curves_added": 0,
+    "reason": "Les liens et métadonnées ont pu être vérifiés, mais les fichiers binaires ou CSV bruts n’ont pas été récupérés et contrôlés dans cet environnement. Aucune valeur n’a donc été inventée."
+  }
+}

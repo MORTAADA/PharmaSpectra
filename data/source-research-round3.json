@@ -1,0 +1,63 @@
+{
+  "project_version": "0.9.22",
+  "purpose": "Résultats de recherche multi-source ciblés. Les liens et fichiers annoncés ne sont pas considérés comme des données locales tant que leur contenu brut n’a pas été téléchargé et validé.",
+  "sources": [
+    {
+      "name": "NIST Chemistry WebBook",
+      "compound": "Aspirine",
+      "spectrum": "UV-Visible expérimental",
+      "record_url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C50782&Mask=E8F&Units=CAL",
+      "data_url": "https://webbook.nist.gov/cgi/cbook.cgi?Index=0&JCAMP=C50782&Type=UVVis",
+      "evidence": "Page NIST annonce image numérisée, SVG et téléchargement JCAMP-DX; source Lang (éditeur), 1962; RAS UV No. 19697; Unicam SP 500.",
+      "verification": "record metadata verified via web search; raw JCAMP not downloaded locally",
+      "local_status": "reference_link_only"
+    },
+    {
+      "name": "HMDB",
+      "compound": "Paracétamol / acetaminophen (HMDB0001859)",
+      "spectrum": "¹H NMR expérimental",
+      "record_url": "https://www.hmdb.ca/spectra/nmr_one_d/2079",
+      "evidence": "Page de résultat HMDB décrit 400 MHz, DMSO-d6, JEOL, référence TMS; Peak List CSV 279 Bytes annoncé.",
+      "verification": "metadata verified via indexed result; direct page fetch returned 403",
+      "local_status": "CSV not imported; no local numeric points"
+    },
+    {
+      "name": "HMDB",
+      "compound": "Paracétamol / acetaminophen (HMDB0001859)",
+      "spectrum": "¹³C NMR expérimental",
+      "record_url": "https://www.hmdb.ca/spectra/nmr_one_d/2773",
+      "evidence": "Référence conservée dans l’audit précédent; Peak List CSV annoncé.",
+      "verification": "not independently revalidated in this round",
+      "local_status": "CSV not imported; no local numeric points"
+    },
+    {
+      "name": "HMDB",
+      "compound": "Paracétamol / acetaminophen (HMDB0001859)",
+      "spectrum": "¹H NMR prédit — distinct de l’expérimental",
+      "record_url": "https://www.hmdb.ca/spectra/nmr_one_d/9708",
+      "evidence": "Résultat HMDB décrit un spectre prédit en D2O et un fichier JCAMP-DX annoncé.",
+      "verification": "metadata verified via indexed result",
+      "local_status": "predicted JCAMP not imported; not used as experimental data"
+    },
+    {
+      "name": "HMDB Downloads",
+      "compound": "Catalogue de données de spectres",
+      "record_url": "https://www.hmdb.ca/downloads",
+      "evidence": "Catalogue annonce fichiers FID RMN et listes de pics; HMDB indique des conditions de citation et autorisation pour redistribution commerciale.",
+      "verification": "catalogue verified via web search",
+      "local_status": "catalogue only; bulk archives not downloaded"
+    }
+  ],
+  "limitations": [
+    "Aucun nouveau point numérique de spectre n’a été intégré dans v0.9.22.",
+    "Les fichiers CSV et JCAMP annoncés par les pages ne sont pas inclus dans l’archive.",
+    "Le résultat HMDB ¹H expérimental a une liste de pics disponible mais pas de courbe complète annoncée sur cette page.",
+    "Les données prédites sont explicitement séparées des expérimentales.",
+    "Vérifier les conditions de licence et d’attribution avant toute redistribution de données HMDB."
+  ],
+  "next_steps": [
+    "Télécharger le fichier JCAMP-DX UV-Visible NIST de l’aspirine et valider les points/unités.",
+    "Obtenir les CSV de pics HMDB par téléchargement direct ou via les jeux de données autorisés; importer seulement les valeurs vérifiées.",
+    "Continuer molécule par molécule et régénérer le rapport d’audit après chaque import."
+  ]
+}

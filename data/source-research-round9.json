@@ -1,0 +1,36 @@
+{
+  "release": "0.9.30",
+  "date": "2026-10-30",
+  "scope": "Ibuprofen IR reference cross-check: SDBS / AIST",
+  "findings": [
+    {
+      "compound": "(S)-(+)-ibuprofen",
+      "spectrum": "IR",
+      "status": "verified_external_reference; numerical trace not imported",
+      "primary_source": {
+        "title": "SDBS Compound Landing — SDBS No. 41004",
+        "publisher": "National Institute of Advanced Industrial Science and Technology (AIST), Japan",
+        "url": "https://sdbs.db.aist.go.jp/CompoundLanding.aspx?sdbsno=41004",
+        "listed_ir_records": [
+          "SDBS-IR2013-77206ND (Nujol)",
+          "SDBS-IR2013-80589ND (KBr disk)"
+        ],
+        "rights_note": "SDBS states that profit-making/commercial use requires prior permission; respect AIST terms and attribution."
+      },
+      "identity_caveat": "The SDBS entry is explicitly (S)-(+)-ibuprofen, whereas the PharmaSpectra ibuprofen identity is the general/racemic API entry. Do not silently treat the enantiopure reference as a racemate measurement.",
+      "integration_decision": "Add as an external IR reference only. No numerical data file was retrieved and validated; do not draw a synthetic curve or claim local spectrum integration."
+    },
+    {
+      "compound": "Ibuprofen acid",
+      "spectrum": "UV-Visible",
+      "status": "raw experimental absorbance series not retrieved",
+      "additional_candidate_dataset": {
+        "title": "Raw and processed in vitro release (IVRT) data for an ibuprofen/poloxamer-407 gel study",
+        "url": "https://zenodo.org/records/20633445",
+        "contains": "Raw UV-Vis absorbance readings and calibration workbooks for formulation release experiments.",
+        "limitation": "These are formulation/IVRT release measurements, not an intrinsic reference absorption spectrum of pure ibuprofen. Do not mix them with the pure-API UV spectrum."
+      },
+      "integration_decision": "Do not import the formulation release measurements into the pure ibuprofen UV spectrum slot. They may be used later in a separate formulation/analytical-method dataset."
+    }
+  ]
+}

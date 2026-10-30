@@ -1,0 +1,108 @@
+{
+  "version": "0.9.43",
+  "purpose": "Documented JCAMP-DX import capabilities including tested ASDF SQZ/DIF/DUP decoding for one-dimensional XYDATA.",
+  "formats": [
+    {
+      "format": "XYPOINTS=(XY..XY)",
+      "status": "supported",
+      "condition": "Uncompressed numeric X/Y pairs; XFACTOR and YFACTOR applied."
+    },
+    {
+      "format": "XYDATA=(X++(Y..Y))",
+      "status": "supported",
+      "condition": "AFFN, PAC, SQZ, DIF and DUP/DIFDUP tokens decoded; X checkpoints and DIF Y-checkpoints handled; XFACTOR/YFACTOR applied and NPOINTS checked."
+    },
+    {
+      "format": "PAC",
+      "status": "supported",
+      "condition": "Signed numeric fields parsed from compact XYDATA lines; scientific-notation exponents preserved. Verify NPOINTS and factors."
+    },
+    {
+      "format": "AFFN",
+      "status": "supported",
+      "condition": "Only in the uncompressed numeric layouts above."
+    },
+    {
+      "format": "SQZ",
+      "status": "supported",
+      "condition": "Decoded in one-dimensional XYDATA using JCAMP pseudo-digit mappings; DIF continuation checkpoints and DUP counts handled; NPOINTS integrity check required when declared."
+    },
+    {
+      "format": "DIF",
+      "status": "supported",
+      "condition": "Decoded in one-dimensional XYDATA using JCAMP pseudo-digit mappings; DIF continuation checkpoints and DUP counts handled; NPOINTS integrity check required when declared."
+    },
+    {
+      "format": "DUP",
+      "status": "supported",
+      "condition": "Decoded in one-dimensional XYDATA using JCAMP pseudo-digit mappings; DIF continuation checkpoints and DUP counts handled; NPOINTS integrity check required when declared."
+    },
+    {
+      "format": "DIFDUP",
+      "status": "supported",
+      "condition": "Decoded in one-dimensional XYDATA using JCAMP pseudo-digit mappings; DIF continuation checkpoints and DUP counts handled; NPOINTS integrity check required when declared."
+    },
+    {
+      "format": "NTUPLES multidimensionnel / LINK / multiblock",
+      "status": "partially_supported",
+      "condition": "NTUPLES RMN 1D uniquement avec pages N=1 (R) et N=2 (I) et variable-list X/R/I; les autres NTUPLES, LINK et fichiers multiblocs sont refusés sans import partiel."
+    },
+    {
+      "format": "NTUPLES multidimensionnel / LINK / multiblock",
+      "status": "partially_supported",
+      "condition": "NTUPLES RMN 1D uniquement avec pages N=1 (R) et N=2 (I) et variable-list X/R/I; les autres NTUPLES, LINK et fichiers multiblocs sont refusés sans import partiel."
+    },
+    {
+      "format": "XYDATA=(X++(R..R)) / (X++(I..I))",
+      "status": "supported",
+      "condition": "Canal réel ou imaginaire 1D lu comme trace indépendante; identité du canal conservée dans les métadonnées."
+    }
+  ],
+  "validation": [
+    "Reject compressed data rather than parse encoded characters as numbers",
+    "Apply XFACTOR and YFACTOR",
+    "Check NPOINTS when declared",
+    "Require at least two finite points",
+    "Check X range against selected spectrum type",
+    "Preserve source and experimental metadata separately from decoded points",
+    "Parse PAC compact signed values without splitting exponent signs",
+    "Decode SQZ positive/negative pseudo-digits and DIF positive/negative deltas",
+    "Expand DUP counts, including DIFDUP repeated differences",
+    "Drop repeated Y-checkpoint at continuation rows after DIF encoding",
+    "Reject malformed tokens and enforce NPOINTS after decompression",
+    "Reject the JCAMP undefined/off-scale ordinate marker (?) instead of silently bridging across a missing measurement.",
+    "Cross-check decoded XYDATA first and last abscissas against FIRSTX/LASTX with half-step tolerance; reject inconsistent headers.",
+    "Accepter les variable-lists NMR 1D Y/R/I et conserver l’identité real/imaginary; rejeter les autres formes XYDATA non implémentées.",
+    "Automatically extract available JCAMP LDR metadata into a separate import metadata object; metadata extraction does not certify provenance or experimental validity.",
+    "Supporter uniquement NTUPLES RMN 1D X/R/I avec pages N=1 (R) et N=2 (I); décoder les pages séparément, conserver les deux canaux et refuser les structures 2D/séries non reconnues."
+  ],
+  "reference_implementation": {
+    "name": "readJDX",
+    "version": "0.6.4",
+    "license": "GPL-3-or-later",
+    "url": "https://github.com/bryanhanson/readJDX",
+    "note": "Used as a behavioral reference for ASDF/SQZ/DIF/DUP; the application contains a small local implementation and does not bundle this library."
+  },
+  "metadata_extraction": [
+    "TITLE",
+    "DATA TYPE",
+    "DATA CLASS",
+    "XUNITS/YUNITS",
+    "XFACTOR/YFACTOR",
+    "FIRSTX/LASTX/DELTAX/NPOINTS",
+    "NMR nucleus and observe frequency",
+    "solvent",
+    "averages/scans",
+    "pulse sequence",
+    "instrument/data system",
+    "date/time",
+    "origin/owner",
+    "unknown vendor-specific dot records retained separately"
+  ],
+  "implemented_features": [
+    "Afficher les canaux NTUPLES RMN 1D R et I séparément ou en superposition, sans fusion mathématique ni correction de phase automatique."
+  ],
+  "notes": [
+    "La superposition R/I est une visualisation comparative uniquement; elle ne constitue pas une correction de phase ni un spectre absorbance reconstruit."
+  ]
+}

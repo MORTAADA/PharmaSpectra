@@ -1,0 +1,37 @@
+{
+  "project_version": "0.9.19",
+  "compound": {
+    "name": "Acetaminophen (Paracetamol)",
+    "cas": "103-90-2",
+    "nist_id": "C103902",
+    "hmdb_id": "HMDB0001859"
+  },
+  "cross_checked_sources": [
+    {
+      "source": "NIST Chemistry WebBook",
+      "type": "UV/Visible",
+      "url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C103902&Mask=1E9F",
+      "image_url": "https://webbook.nist.gov/cgi/cbook.cgi?Index=0&Large=on&Spec=C103902&Type=UVVis",
+      "download_url": "https://webbook.nist.gov/cgi/cbook.cgi?Index=0&JCAMP=C103902&Type=UVVis",
+      "metadata": "Lang (editor), 1965; RAS UV No. 19635; instrument Hilger Uvispek",
+      "result": "reference image exposed in app; JCAMP-DX link advertised but raw data not included locally",
+      "limitations": "No numeric points have been added; inspect source before quantitative use."
+    },
+    {
+      "source": "HMDB",
+      "type": "Experimental 1H NMR",
+      "url": "https://www.hmdb.ca/spectra/nmr_one_d/2079",
+      "metadata": "400 MHz; DMSO-d6; JEOL; TMS reference",
+      "result": "record confirms an experimental 1H NMR spectrum and downloadable peak-list CSV",
+      "limitations": "Peak values have not been imported locally in this release."
+    },
+    {
+      "source": "SDBS (AIST, Japan)",
+      "type": "Independent IR and NMR catalogue",
+      "url": "https://sdbs.db.aist.go.jp/sdbs/cgi-bin/cre_index.cgi?lang=eng",
+      "result": "added as an independent lookup route",
+      "limitations": "No SDBS dataset is claimed as downloaded locally in this release."
+    }
+  ],
+  "integrity_note": "This release adds a source-backed NIST UV/Visible reference image for paracetamol, not a local numerical curve. HMDB is identified as an experimental NMR source, but its peak-list CSV is not yet imported. No spectral points were synthesized."
+}

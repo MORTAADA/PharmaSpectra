@@ -1,0 +1,63 @@
+{
+  "release": "0.9.29",
+  "date": "2026-10-30",
+  "scope": "Ibuprofen UV-Visible experimental-source investigation",
+  "findings": [
+    {
+      "compound": "Ibuprofen acid",
+      "spectrum": "UV-Visible absorption",
+      "status": "experimental spectrum documented; raw point series not imported",
+      "primary_source": {
+        "title": "Ultraviolet light spectroscopic characterization of ibuprofen acid aggregation in deionized water",
+        "journal": "Heliyon",
+        "year": 2023,
+        "doi": "10.1016/j.heliyon.2023.e21260",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10598541/",
+        "license_note": "Open-access article; verify article and supplementary-material license/attribution before redistribution."
+      },
+      "experimental_conditions": {
+        "range_nm": [190, 300],
+        "step_nm": 0.2,
+        "temperatures_C": [20, 30, 40],
+        "concentration_ppm_range": [0.1, 20.1],
+        "instrument": "Shimadzu UV-2401PC",
+        "cuvette": "UV quartz; 1 cm and 5 cm path lengths",
+        "blank": "Deionized water or corresponding solvent",
+        "replicates": 3,
+        "sample": "Ibuprofen acid in deionized water; >99% starting material"
+      },
+      "reported_features_not_raw_points": [
+        { "wavelength_nm": 223, "description": "prominent maximum reported for liquid API in comparative UV study" },
+        { "wavelength_nm": 258, "description": "shoulder reported in comparative UV study" },
+        { "wavelength_nm": 265, "description": "weaker maximum reported in comparative UV study" },
+        { "wavelength_nm": 273, "description": "weaker maximum reported in comparative UV study" }
+      ],
+      "data_availability": "The 2023 article states that data are available on request; supplementary DOCX is provided but the accessible record does not expose a verified numerical wavelength/absorbance table.",
+      "integration_decision": "Do not create a numerical curve from plotted image or reported maxima. Keep as source/conditions metadata until author-provided or otherwise openly downloadable raw values are obtained.",
+      "secondary_source": {
+        "title": "Characterization of Pharmaceutical Tablets Using UV Hyperspectral Imaging as a Rapid In-Line Analysis Tool",
+        "year": 2021,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8271527/",
+        "reported_liquid_API_maxima_nm": [223, 258, 265, 273],
+        "limitation": "Reports band positions and plots; not a verified raw tabular point series in the accessible article record."
+      }
+    },
+    {
+      "compound": "Ibuprofen",
+      "spectrum": "IR",
+      "status": "no verified ibuprofen JCAMP-DX IR file retrieved in this round",
+      "search_portals": [
+        "https://webbook.nist.gov/",
+        "https://sdbs.db.aist.go.jp/sdbs/cgi-bin/cre_index.cgi?lang=eng",
+        "https://spectrabase.com/"
+      ],
+      "integration_decision": "No IR points or curve added. Confirm exact compound form, phase and source before importing any candidate spectrum."
+    }
+  ],
+  "format_reference": {
+    "name": "JCAMP-DX",
+    "authority": "IUPAC",
+    "url": "https://iupac.org/what-we-do/digital-standards/jcamp-dx/",
+    "note": "Standard exchange format for spectral data; file availability does not itself establish experimental provenance."
+  }
+}

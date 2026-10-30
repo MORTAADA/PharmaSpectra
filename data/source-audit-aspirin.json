@@ -1,0 +1,82 @@
+{
+  "project_version": "0.9.19",
+  "compound": {
+    "name": "Aspirin",
+    "hmdb_id": "HMDB0001879",
+    "pubchem_cid": 2244,
+    "cas": "50-78-2"
+  },
+  "cross_checked_sources": [
+    {
+      "source": "NIST Chemistry WebBook",
+      "scope": "UV/Visible reference image and downloadable JCAMP-DX link advertised by NIST",
+      "url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C50782&Mask=E8F&Units=CAL",
+      "data_url": "https://webbook.nist.gov/cgi/cbook.cgi?Index=0&JCAMP=C50782&Type=UVVis",
+      "result": "UV image available; raw JCAMP not integrated in local archive",
+      "metadata": "Lang (editor), 1962; RAS UV No. 19697; Unicam SP 500",
+      "limitations": "Do not treat the image as local numeric points."
+    },
+    {
+      "source": "HMDB / PubChem linked spectral record",
+      "scope": "experimental 1H NMR peak list",
+      "url": "https://hmdb.ca/spectra/nmr_one_d/1776",
+      "result": "11 listed peaks retained in local dataset",
+      "metadata": "600 MHz; H2O; 25.0 mM; 25 °C; pH 7.00; DSS; Bruker",
+      "limitations": "Peak list only, not a complete digital line shape."
+    },
+    {
+      "source": "HMDB / PubChem linked spectral record",
+      "scope": "experimental 13C NMR peak list",
+      "url": "https://hmdb.ca/spectra/nmr_one_d/3097",
+      "result": "9 listed peaks retained in local dataset",
+      "metadata": "50.18 MHz; CDCl3; TMS",
+      "limitations": "Peak list only, not a complete digital line shape."
+    },
+    {
+      "source": "PubChem compound record",
+      "scope": "cross-reference for HMDB, HSDB and SpectraBase entries",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2244",
+      "result": "used to cross-check that multiple spectral source records are listed",
+      "limitations": "PubChem is a gateway/cross-reference here, not assumed to be the original experimental measurement."
+    },
+    {
+      "source": "SDBS (AIST, Japan)",
+      "scope": "independent catalogue for IR and NMR lookup",
+      "url": "https://sdbs.db.aist.go.jp/sdbs/cgi-bin/cre_index.cgi?lang=eng",
+      "result": "added as an additional search route in the application",
+      "limitations": "No aspirin spectrum claimed as locally downloaded in this release."
+    }
+  ],
+  "validated_local_assets": [
+    {
+      "type": "nmr_1h_peak_list",
+      "file": "aspirin_nmr_1h_peaks.csv",
+      "count": 11,
+      "source": "HMDB spectrum 1776; peak list linked from PubChem",
+      "url": "https://hmdb.ca/spectra/nmr_one_d/1776",
+      "scope": "published peak list; not full digitized spectrum"
+    },
+    {
+      "type": "nmr_13c_peak_list",
+      "file": "aspirin_nmr_13c_peaks.csv",
+      "count": 9,
+      "source": "HMDB spectrum 3097; peak list linked from PubChem",
+      "url": "https://hmdb.ca/spectra/nmr_one_d/3097",
+      "scope": "published peak list; not full digitized spectrum"
+    }
+  ],
+  "not_yet_integrated": [
+    {
+      "type": "ir",
+      "reason": "Selected NIST Coblentz reference exposes a scanned image only; numeric download restricted for this reference. SDBS is added as an independent lookup route, not claimed as downloaded.",
+      "url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C50782&Index=1&Type=IR-SPEC"
+    },
+    {
+      "type": "uv_vis",
+      "reason": "NIST image is now shown in the app when the external host permits it. Numeric JCAMP-DX data remain not integrated locally because the raw file could not be retrieved in this build environment.",
+      "url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C50782&Mask=E8F&Units=CAL",
+      "download_url": "https://webbook.nist.gov/cgi/cbook.cgi?Index=0&JCAMP=C50782&Type=UVVis"
+    }
+  ],
+  "integrity_note": "No synthetic points or interpolated experimental curve added. External catalogue links are discovery links only; local scientific status is not upgraded merely because a source is linked."
+}

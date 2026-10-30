@@ -1,0 +1,57 @@
+{
+  "release": "0.9.32",
+  "date": "2026-10-30",
+  "scope": "Round 11: identify reusable spectral formats and new UV-Vis reference datasets; no unverified traces imported.",
+  "findings": [
+    {
+      "compound": "Paracetamol and other organic compounds",
+      "spectrum": "UV-Visible absorption maxima and extinction coefficients",
+      "status": "peer_reviewed_dataset_metadata_verified; compound-level records not yet matched/imported",
+      "primary_source": {
+        "title": "Comparative dataset of experimental and computational attributes of UV/vis absorption spectra",
+        "publisher": "Scientific Data / Nature Portfolio",
+        "doi": "10.1038/s41597-019-0306-0",
+        "url": "https://www.nature.com/articles/s41597-019-0306-0",
+        "dataset_url": "https://doi.org/10.6084/m9.figshare.10304897",
+        "coverage": "18,309 experimentally determined absorption maxima records; CSV/JSON/MongoDB dataset"
+      },
+      "limitation": "The dataset primarily reports lambda-max and extinction coefficients where available, not necessarily full wavelength-intensity traces. Each compound identity, source citation, solvent and conditions must be matched before importing values.",
+      "integration_decision": "Add as discovery source only; do not treat maxima as a complete spectrum."
+    },
+    {
+      "compound": "Ibuprofen and target pharmaceuticals",
+      "spectrum": "IR",
+      "status": "library_availability_verified; compound inclusion not confirmed",
+      "primary_source": {
+        "title": "SWGDRUG Infrared Spectral Library v3.1",
+        "publisher": "SWGDRUG Scientific Working Group",
+        "url": "https://www.swgdrug.org/ir.htm",
+        "formats": [
+          "JCAMP-DX",
+          "OMNIC",
+          "OPUS",
+          "PerkinElmer",
+          "Shimadzu",
+          "Agilent"
+        ]
+      },
+      "limitation": "Library describes 832 FTIR-ATR spectra of structurally confirmed reference materials. The current public listing must be searched for the target compound; no claim that ibuprofen is included.",
+      "integration_decision": "Use only if exact compound and provenance are confirmed; no spectrum imported."
+    },
+    {
+      "compound": "General spectral files",
+      "spectrum": "IR / NMR / UV-Vis exchange format",
+      "status": "standard_reference_verified",
+      "primary_source": {
+        "title": "IUPAC JCAMP-DX standards and data resources",
+        "publisher": "IUPAC",
+        "url": "https://iupac.org/what-we-do/digital-standards/jcamp-dx/",
+        "formats": "JCAMP-DX is a widely used text exchange family for spectral data; standards include IR and NMR."
+      },
+      "limitation": "A format standard is not a source of measured data. The current app parser supports uncompressed XYDATA/XYPOINTS only; compressed ASDF/SQZ/DIF/DUP encodings are rejected.",
+      "integration_decision": "Retain as format/provenance guidance; compressed support remains future work."
+    }
+  ],
+  "data_integrated_this_release": false,
+  "scientific_note": "No new experimental numerical points or full spectral curves were imported in this release. The newly identified datasets are discovery sources, not evidence that spectra have been added."
+}

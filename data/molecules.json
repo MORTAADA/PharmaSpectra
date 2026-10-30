@@ -1,0 +1,1619 @@
+{
+  "dataset_name": "PharmaSpectra",
+  "dataset_version": "0.9.30",
+  "notice": "v0.9.26 : intégration locale de la liste de six pics ¹³C expérimentale du paracétamol (HMDB 2773), issue des valeurs publiées par PubChem; pas de spectre continu.",
+  "molecules": [
+    {
+      "id": "aspirine",
+      "name": "Aspirine",
+      "synonyms": [],
+      "category": "Acide acétylsalicylique",
+      "formula": "C9H8O4",
+      "molar_mass_g_mol": 180.16,
+      "cas_number": "50-78-2",
+      "iupac_name": "2-acetoxybenzoic acid",
+      "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/2244/PNG",
+      "pubchem_search_url": "https://pubchem.ncbi.nlm.nih.gov/#query=Aspirine",
+      "description": "Données chimiques initiales documentées; compléter la fiche avec les conditions et références spécifiques au jeu de données retenu.",
+      "spectra": {
+        "uv_vis": {
+          "status": "reference_image_available_numeric_jcamp_not_imported",
+          "source_name": "NIST Chemistry WebBook — spectre UV/Visible",
+          "source_url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C50782&Mask=E8F&Units=CAL",
+          "citation": "Lang (éditeur), 1962; source RAS UV No. 19697; instrument Unicam SP 500. Consulter la page NIST pour les informations détaillées disponibles.",
+          "conditions": {
+            "note": "Les métadonnées disponibles indiquent la source Lang (éditeur), 1962 et l’instrument Unicam SP 500; vérifier les conditions de mesure dans la page NIST."
+          },
+          "x_unit": "nm",
+          "y_unit": "Absorbance",
+          "data_file": null,
+          "points": [],
+          "data_download_url": "https://webbook.nist.gov/cgi/cbook.cgi?Index=0&JCAMP=C50782&Type=UVVis",
+          "download_format": "JCAMP-DX proposé par NIST; non inclus dans cette archive car le téléchargement direct n’est pas disponible dans l’environnement de construction.",
+          "spectrum_image_url": "https://webbook.nist.gov/cgi/cbook.cgi?Index=0&Large=on&Spec=C50782&Type=UVVis",
+          "image_note": "Image du spectre UV/Visible publiée par NIST (Lang, 1962; RAS UV No. 19697; instrument Unicam SP 500). Le graphique est une référence visuelle; les points numériques originaux ne sont pas inclus localement dans cette archive."
+        },
+        "ir": {
+          "status": "reference_image_only_download_restricted",
+          "source_name": "NIST Chemistry WebBook — spectre IR expérimental, Coblentz Society",
+          "source_url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C50782&Index=1&Type=IR-SPEC",
+          "citation": "Coblentz Society, réf. 05063; date 1962-07-02; solide (disque KBr), transmission; instrument Perkin-Elmer 21; résolution 2 cm⁻¹; numérisé depuis une copie papier.",
+          "conditions": {
+            "note": "Solide, disque KBr; spectre de référence numérisé depuis une copie papier; résolution annoncée 2 cm⁻¹."
+          },
+          "x_unit": "cm⁻¹",
+          "y_unit": "Transmittance (%)",
+          "data_file": null,
+          "points": [],
+          "data_download_url": null,
+          "download_format": "Aucun fichier JCAMP-DX disponible pour cette référence Coblentz; image numérisée seulement selon NIST.",
+          "spectrum_image_url": "https://webbook.nist.gov/cgi/cbook.cgi?Index=1&Large=on&SVG=on&Spec=C50782&Type=IR",
+          "image_note": "La référence Coblentz consultée indique qu’une image numérisée est disponible mais que les données numériques de ce spectre ne sont pas téléchargeables. Aucun point local n’a été inventé."
+        },
+        "nmr_1h": {
+          "status": "published_peak_list_available_not_full_spectrum",
+          "source_name": "Human Metabolome Database (HMDB) — RMN ¹H expérimentale",
+          "source_url": "https://hmdb.ca/spectra/nmr_one_d/1776",
+          "citation": "HMDB0001879; spectre 1D expérimental; 600 MHz; eau; 25,0 mM; 25 °C; pH 7,00; référence DSS; instrument Bruker. Liste de pics publiée associée au spectre HMDB 1776; ce sont des pics, pas une courbe continue.",
+          "conditions": {
+            "solvent": "H₂O",
+            "frequency_MHz": 600,
+            "concentration_mM": 25.0,
+            "temperature_C": 25.0,
+            "pH": 7.0,
+            "reference": "DSS",
+            "instrument": "Bruker"
+          },
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": "aspirin_nmr_1h_peaks.csv",
+          "points": [],
+          "data_download_url": "https://hmdb.ca/spectra/nmr_one_d/1776",
+          "peak_list_source": "PubChem spectral information, linked to HMDB experimental spectrum IDs 1776 and 3097.",
+          "peaks": [
+            {
+              "shift_ppm": 7.35,
+              "intensity": 5.61
+            },
+            {
+              "shift_ppm": 7.68,
+              "intensity": 9.19
+            },
+            {
+              "shift_ppm": 7.37,
+              "intensity": 7.38
+            },
+            {
+              "shift_ppm": 7.51,
+              "intensity": 9.72
+            },
+            {
+              "shift_ppm": 7.13,
+              "intensity": 11.25
+            },
+            {
+              "shift_ppm": 7.67,
+              "intensity": 9.79
+            },
+            {
+              "shift_ppm": 7.52,
+              "intensity": 4.57
+            },
+            {
+              "shift_ppm": 7.5,
+              "intensity": 5.69
+            },
+            {
+              "shift_ppm": 7.36,
+              "intensity": 12.78
+            },
+            {
+              "shift_ppm": 2.33,
+              "intensity": 100.0
+            },
+            {
+              "shift_ppm": 7.14,
+              "intensity": 12.2
+            }
+          ],
+          "data_file_note": "Export local des valeurs de pics déjà publiées dans molecules.json; ce fichier contient des pics discrets et ne constitue pas une courbe complète."
+        },
+        "nmr_13c": {
+          "status": "published_peak_list_available_not_full_spectrum",
+          "source_name": "Human Metabolome Database (HMDB) — RMN ¹³C expérimentale",
+          "source_url": "https://hmdb.ca/spectra/nmr_one_d/3097",
+          "citation": "HMDB0001879; spectre 1D expérimental; 50,18 MHz; CDCl₃; référence chimique TMS. La page source fournit une liste de pics CSV. Liste de pics CSV publiée par HMDB; ce ne sont pas des points de courbe continue.",
+          "conditions": {
+            "solvent": "CDCl₃",
+            "frequency_MHz": 50.18,
+            "reference": "TMS"
+          },
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": "aspirin_nmr_13c_peaks.csv",
+          "points": [],
+          "data_download_url": "https://hmdb.ca/spectra/nmr_one_d/3097",
+          "peak_list_source": "PubChem spectral information, linked to HMDB experimental spectrum IDs 1776 and 3097.",
+          "peaks": [
+            {
+              "shift_ppm": 151.28,
+              "intensity": 560.0
+            },
+            {
+              "shift_ppm": 122.26,
+              "intensity": 397.0
+            },
+            {
+              "shift_ppm": 132.51,
+              "intensity": 1000.0
+            },
+            {
+              "shift_ppm": 134.9,
+              "intensity": 924.0
+            },
+            {
+              "shift_ppm": 20.99,
+              "intensity": 674.0
+            },
+            {
+              "shift_ppm": 126.17,
+              "intensity": 986.0
+            },
+            {
+              "shift_ppm": 169.76,
+              "intensity": 510.0
+            },
+            {
+              "shift_ppm": 124.01,
+              "intensity": 974.0
+            },
+            {
+              "shift_ppm": 170.2,
+              "intensity": 450.0
+            }
+          ],
+          "data_file_note": "Export local des valeurs de pics déjà publiées dans molecules.json; ce fichier contient des pics discrets et ne constitue pas une courbe complète."
+        }
+      },
+      "pubchem_cid": "2244",
+      "chemical_data_source": {
+        "name": "PubChem PUG REST / NIST Chemistry WebBook / CAS Common Chemistry",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2244",
+        "note": "Propriétés chimiques renseignées à partir de références de base de données; revérifier l'identité, la forme et la version de la fiche avant publication."
+      }
+    },
+    {
+      "id": "paracetamol",
+      "name": "Paracétamol",
+      "synonyms": [],
+      "category": "Antalgique",
+      "formula": "C8H9NO2",
+      "molar_mass_g_mol": 151.1626,
+      "cas_number": "103-90-2",
+      "iupac_name": "N-(4-hydroxyphenyl)acetamide",
+      "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/1983/PNG",
+      "pubchem_search_url": "https://pubchem.ncbi.nlm.nih.gov/#query=Paracétamol",
+      "description": "Données chimiques initiales documentées; compléter la fiche avec les conditions et références spécifiques au jeu de données retenu.",
+      "spectra": {
+        "uv_vis": {
+          "status": "reference_image_available_numeric_jcamp_not_imported",
+          "source_name": "NIST Chemistry WebBook — spectre UV/Visible",
+          "source_url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C103902&Mask=1E9F",
+          "citation": "NIST Chemistry WebBook, spectre UV/Visible du paracétamol (Acetaminophen); source indiquée par NIST : Lang (éditeur), 1965; RAS UV No. 19635; instrument Hilger Uvispek.",
+          "conditions": {
+            "note": "Les métadonnées visibles dans NIST identifient la source Lang (éditeur), 1965, RAS UV No. 19635 et l’instrument Hilger Uvispek. Vérifier les conditions détaillées sur la page source."
+          },
+          "x_unit": "nm",
+          "y_unit": "Logarithme epsilon",
+          "data_file": null,
+          "points": [],
+          "data_download_url": "https://webbook.nist.gov/cgi/cbook.cgi?Index=0&JCAMP=C103902&Type=UVVis",
+          "download_format": "JCAMP-DX proposé par NIST; données numériques non incluses localement dans cette archive.",
+          "spectrum_image_url": "https://webbook.nist.gov/cgi/cbook.cgi?Index=0&Large=on&Spec=C103902&Type=UVVis",
+          "image_note": "Image du spectre UV/Visible publiée par NIST. Elle est une référence visuelle externe; les points numériques originaux ne sont pas inclus localement."
+        },
+        "ir": {
+          "status": "source_available_data_not_imported",
+          "source_name": "NIST Chemistry WebBook — spectre IR",
+          "source_url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C103902&Type=IR-SPEC",
+          "citation": "Consulter la page source pour l’état de l’échantillon et les conditions expérimentales.",
+          "conditions": {
+            "note": "Consulter la page source pour l’état de l’échantillon et les conditions expérimentales."
+          },
+          "x_unit": "cm⁻¹",
+          "y_unit": "Transmittance (%)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_1h": {
+          "status": "experimental_peak_list_integrated_not_full_spectrum",
+          "source_name": "HMDB — Acetaminophen, ¹H NMR expérimental (400 MHz)",
+          "source_url": "https://hmdb.ca/spectra/nmr_one_d/2079",
+          "citation": "HMDB0001859; spectre 1D expérimental; solvant DMSO-d6; instrument JEOL; fréquence 400 MHz; référence chimique TMS. La page source annonce une liste de pics CSV de 279 octets, mais le CSV n’a pas été intégré localement. Valeurs de déplacement et intensités reprises de la section Spectral Information de PubChem (CID 1983), entrée HMDB 2079; liste de pics uniquement, sans reconstruction d’un spectre continu.",
+          "conditions": {
+            "solvent": "DMSO-d6",
+            "instrument": "JEOL",
+            "nucleus": "1H",
+            "frequency_MHz": 400,
+            "reference": "TMS"
+          },
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": "data/paracetamol_nmr_1h_hmdb2079_peaks.csv",
+          "points": [],
+          "data_download_url": "https://pubchem.ncbi.nlm.nih.gov/compound/1983#section=Spectral-Information",
+          "download_format": "CSV local dérivé des couples shift/intensity affichés par PubChem pour HMDB 2079; aucune courbe complète ni FID disponible sur la fiche expérimentale.",
+          "spectrum_image_url": null,
+          "image_note": "Aucun tracé expérimental complet intégré localement; consulter la page HMDB pour les fichiers disponibles.",
+          "peaks": [
+            {
+              "shift_ppm": 9.14,
+              "intensity": 458.0
+            },
+            {
+              "shift_ppm": 6.7,
+              "intensity": 290.0
+            },
+            {
+              "shift_ppm": 7.36,
+              "intensity": 262.0
+            },
+            {
+              "shift_ppm": 7.37,
+              "intensity": 24.0
+            },
+            {
+              "shift_ppm": 6.68,
+              "intensity": 86.0
+            },
+            {
+              "shift_ppm": 6.71,
+              "intensity": 28.0
+            },
+            {
+              "shift_ppm": 6.67,
+              "intensity": 32.0
+            },
+            {
+              "shift_ppm": 7.36,
+              "intensity": 85.0
+            },
+            {
+              "shift_ppm": 7.34,
+              "intensity": 275.0
+            },
+            {
+              "shift_ppm": 7.35,
+              "intensity": 90.0
+            },
+            {
+              "shift_ppm": 6.68,
+              "intensity": 271.0
+            },
+            {
+              "shift_ppm": 6.7,
+              "intensity": 91.0
+            },
+            {
+              "shift_ppm": 9.66,
+              "intensity": 101.0
+            },
+            {
+              "shift_ppm": 1.99,
+              "intensity": 1000.0
+            },
+            {
+              "shift_ppm": 7.33,
+              "intensity": 34.0
+            }
+          ],
+          "peak_data_note": "Les valeurs affichées dans PubChem comprennent des pics proches et des intensités relatives publiées. Elles sont conservées sans fusion ni interpolation."
+        },
+        "nmr_13c": {
+          "status": "experimental_peak_list_integrated_not_full_spectrum",
+          "source_name": "HMDB — Acetaminophen, ¹³C NMR expérimental (22,53 MHz)",
+          "source_url": "https://hmdb.ca/spectra/nmr_one_d/2773",
+          "citation": "HMDB0001859, spectre 1D expérimental; DMSO-d6; instrument JEOL; 22,53 MHz; référence TMS. Les six couples déplacement/intensité sont repris de la section Spectral Information de PubChem (CID 1983), reliée au spectre HMDB 2773. Liste de pics uniquement; aucun signal continu reconstruit.",
+          "conditions": {
+            "solvent": "DMSO-d6",
+            "instrument": "JEOL",
+            "nucleus": "13C",
+            "frequency_MHz": 22.53,
+            "reference": "TMS"
+          },
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": "data/paracetamol_nmr_13c_hmdb2773_peaks.csv",
+          "points": [],
+          "data_download_url": "https://pubchem.ncbi.nlm.nih.gov/compound/1983#section=Spectral-Information",
+          "download_format": "CSV local des six couples shift/intensity publiés par PubChem pour HMDB 2773; liste de pics uniquement.",
+          "spectrum_image_url": null,
+          "image_note": "Aucun tracé expérimental complet intégré localement; la visualisation représente uniquement les six pics publiés.",
+          "peaks": [
+            {
+              "shift_ppm": 114.97,
+              "intensity": 1000.0
+            },
+            {
+              "shift_ppm": 167.44,
+              "intensity": 188.0
+            },
+            {
+              "shift_ppm": 23.61,
+              "intensity": 250.0
+            },
+            {
+              "shift_ppm": 130.99,
+              "intensity": 295.0
+            },
+            {
+              "shift_ppm": 153.15,
+              "intensity": 256.0
+            },
+            {
+              "shift_ppm": 120.91,
+              "intensity": 480.0
+            }
+          ],
+          "peak_data_note": "Six pics et intensités relatives tels que publiés par PubChem; aucune interpolation ni fusion."
+        }
+      },
+      "pubchem_cid": "1983",
+      "chemical_data_source": {
+        "name": "PubChem PUG REST / NIST Chemistry WebBook / CAS Common Chemistry",
+        "url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C103902&Type=IR-SPEC",
+        "note": "Propriétés chimiques renseignées à partir de références de base de données; revérifier l'identité, la forme et la version de la fiche avant publication."
+      }
+    },
+    {
+      "id": "ibuprofene",
+      "name": "Ibuprofène",
+      "synonyms": [],
+      "category": "Anti-inflammatoire non stéroïdien",
+      "formula": "C13H18O2",
+      "molar_mass_g_mol": 206.28,
+      "cas_number": "15687-27-1",
+      "iupac_name": "2-[4-(2-methylpropyl)phenyl]propanoic acid",
+      "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/3672/PNG",
+      "pubchem_search_url": "https://pubchem.ncbi.nlm.nih.gov/#query=Ibuprofène",
+      "description": "Données chimiques initiales documentées; compléter la fiche avec les conditions et références spécifiques au jeu de données retenu.",
+      "spectra": {
+        "uv_vis": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "nm",
+          "y_unit": "Absorbance",
+          "data_file": null,
+          "points": []
+        },
+        "ir": {
+          "status": "external_reference_only_not_digitized",
+          "source_name": "SDBS (AIST Japan) — référence IR de (S)-(+)-ibuprofène",
+          "source_url": "https://sdbs.db.aist.go.jp/CompoundLanding.aspx?sdbsno=41004",
+          "citation": "SDBS No. 41004; entrée correspondant à (S)-(+)-ibuprofène. La fiche répertorie deux références IR : SDBS-IR2013-77206ND (Nujol) et SDBS-IR2013-80589ND (pastille KBr). Cette entrée énantiopure ne doit pas être présentée comme un échantillon racémique sans vérification.",
+          "conditions": {
+            "sample_identity": "(S)-(+)-ibuprofen (enantiopure entry)",
+            "available_ir_references": [
+              "SDBS-IR2013-77206ND (Nujol)",
+              "SDBS-IR2013-80589ND (KBr disk)"
+            ],
+            "publisher": "AIST, Japan",
+            "note": "Référence externe; aucun fichier numérique de points n’a été récupéré ni intégré. Vérifier la page SDBS pour les conditions détaillées."
+          },
+          "x_unit": "cm⁻¹",
+          "y_unit": "Transmittance (%)",
+          "data_file": null,
+          "points": [],
+          "download_format": "SDBS fournit une consultation de référence; aucun CSV/JCAMP vérifié n’est inclus localement.",
+          "reuse_note": "SDBS indique que l’usage commercial/profit-making nécessite une autorisation préalable; respecter les conditions AIST et citer la base."
+        },
+        "nmr_1h": {
+          "status": "experimental_peak_list_integrated_not_full_spectrum",
+          "source_name": "HMDB / PubChem — Ibuprofen, ¹H NMR expérimental (500 MHz)",
+          "source_url": "https://hmdb.ca/spectra/nmr_one_d/1804",
+          "citation": "HMDB0001925, spectre 1D expérimental, Spectra ID 1804; 500 MHz; CDCl3; 11.0 mM; 25.0 °C; instrument Varian; référence CHCl3. Les couples déplacement/intensité sont ceux affichés dans la section Spectral Information de PubChem pour le spectre HMDB 1804. Liste de pics uniquement, pas une courbe continue.",
+          "conditions": {
+            "solvent": "CDCl3",
+            "instrument": "Varian",
+            "nucleus": "1H",
+            "frequency_MHz": 500,
+            "concentration_mM": 11.0,
+            "temperature_C": 25.0,
+            "reference": "CHCl3"
+          },
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": "data/ibuprofen_nmr_1h_hmdb1804_peaks.csv",
+          "points": [],
+          "data_download_url": "https://pubchem.ncbi.nlm.nih.gov/compound/3672#section=Spectral-Information",
+          "download_format": "CSV local des 21 couples shift/intensity affichés par PubChem pour HMDB Spectra ID 1804; liste de pics uniquement.",
+          "peaks": [
+            {
+              "shift_ppm": 3.74,
+              "intensity": 2.27
+            },
+            {
+              "shift_ppm": 1.82,
+              "intensity": 2.26
+            },
+            {
+              "shift_ppm": 2.44,
+              "intensity": 24.54
+            },
+            {
+              "shift_ppm": 0.89,
+              "intensity": 95.97
+            },
+            {
+              "shift_ppm": 1.5,
+              "intensity": 44.51
+            },
+            {
+              "shift_ppm": 1.52,
+              "intensity": 47.08
+            },
+            {
+              "shift_ppm": 1.89,
+              "intensity": 0.71
+            },
+            {
+              "shift_ppm": 3.73,
+              "intensity": 7.24
+            },
+            {
+              "shift_ppm": 3.71,
+              "intensity": 6.81
+            },
+            {
+              "shift_ppm": 0.91,
+              "intensity": 100.0
+            },
+            {
+              "shift_ppm": 7.11,
+              "intensity": 20.57
+            },
+            {
+              "shift_ppm": 7.1,
+              "intensity": 14.72
+            },
+            {
+              "shift_ppm": 7.23,
+              "intensity": 16.81
+            },
+            {
+              "shift_ppm": 7.22,
+              "intensity": 21.2
+            },
+            {
+              "shift_ppm": 1.88,
+              "intensity": 2.36
+            },
+            {
+              "shift_ppm": 1.86,
+              "intensity": 4.51
+            },
+            {
+              "shift_ppm": 1.81,
+              "intensity": 0.68
+            },
+            {
+              "shift_ppm": 3.7,
+              "intensity": 1.97
+            },
+            {
+              "shift_ppm": 1.85,
+              "intensity": 5.72
+            },
+            {
+              "shift_ppm": 1.83,
+              "intensity": 4.63
+            },
+            {
+              "shift_ppm": 2.46,
+              "intensity": 23.14
+            }
+          ]
+        },
+        "nmr_13c": {
+          "status": "experimental_peak_list_integrated_not_full_spectrum",
+          "source_name": "HMDB / PubChem — Ibuprofen, ¹³C NMR expérimental (50.32 MHz)",
+          "source_url": "https://hmdb.ca/spectra/nmr_one_d/2954",
+          "citation": "HMDB0001925, spectre 1D expérimental, Spectra ID 2954; 50.32 MHz; CDCl3; référence TMS. Les 10 couples déplacement/intensité sont ceux affichés dans la section Spectral Information de PubChem pour le spectre HMDB 2954. Liste de pics uniquement, pas une courbe continue.",
+          "conditions": {
+            "solvent": "CDCl3",
+            "nucleus": "13C",
+            "frequency_MHz": 50.32,
+            "reference": "TMS"
+          },
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": "data/ibuprofen_nmr_13c_hmdb2954_peaks.csv",
+          "points": [],
+          "data_download_url": "https://pubchem.ncbi.nlm.nih.gov/compound/3672#section=Spectral-Information",
+          "download_format": "CSV local des 10 couples shift/intensity affichés par PubChem pour HMDB Spectra ID 2954; liste de pics uniquement.",
+          "peaks": [
+            {
+              "shift_ppm": 22.47,
+              "intensity": 962.0
+            },
+            {
+              "shift_ppm": 18.15,
+              "intensity": 393.0
+            },
+            {
+              "shift_ppm": 127.36,
+              "intensity": 974.0
+            },
+            {
+              "shift_ppm": 45.08,
+              "intensity": 462.0
+            },
+            {
+              "shift_ppm": 129.47,
+              "intensity": 1000.0
+            },
+            {
+              "shift_ppm": 30.25,
+              "intensity": 539.0
+            },
+            {
+              "shift_ppm": 137.02,
+              "intensity": 320.0
+            },
+            {
+              "shift_ppm": 181.35,
+              "intensity": 209.0
+            },
+            {
+              "shift_ppm": 45.11,
+              "intensity": 561.0
+            },
+            {
+              "shift_ppm": 140.93,
+              "intensity": 353.0
+            }
+          ]
+        }
+      },
+      "pubchem_cid": "3672",
+      "chemical_data_source": {
+        "name": "PubChem PUG REST / NIST Chemistry WebBook / CAS Common Chemistry",
+        "url": "https://commonchemistry.cas.org/detail?cas_rn=15687-27-1",
+        "note": "Propriétés chimiques renseignées à partir de références de base de données; revérifier l'identité, la forme et la version de la fiche avant publication."
+      }
+    },
+    {
+      "id": "naproxene",
+      "name": "Naproxène",
+      "synonyms": [],
+      "category": "Anti-inflammatoire non stéroïdien",
+      "formula": "C14H14O3",
+      "molar_mass_g_mol": 230.2592,
+      "cas_number": "22204-53-1",
+      "iupac_name": "(2S)-2-(6-methoxynaphthalen-2-yl)propanoic acid",
+      "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/156391/PNG",
+      "pubchem_search_url": "https://pubchem.ncbi.nlm.nih.gov/#query=Naproxène",
+      "description": "Données chimiques initiales documentées; compléter la fiche avec les conditions et références spécifiques au jeu de données retenu.",
+      "spectra": {
+        "uv_vis": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "nm",
+          "y_unit": "Absorbance",
+          "data_file": null,
+          "points": []
+        },
+        "ir": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "cm⁻¹",
+          "y_unit": "Transmittance (%)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        }
+      },
+      "pubchem_cid": "156391",
+      "chemical_data_source": {
+        "name": "PubChem PUG REST / NIST Chemistry WebBook / CAS Common Chemistry",
+        "url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=22204-53-1",
+        "note": "Propriétés chimiques renseignées à partir de références de base de données; revérifier l'identité, la forme et la version de la fiche avant publication."
+      }
+    },
+    {
+      "id": "diclofenac",
+      "name": "Diclofénac",
+      "synonyms": [],
+      "category": "Anti-inflammatoire non stéroïdien",
+      "formula": "C14H11Cl2NO2",
+      "molar_mass_g_mol": 296.149,
+      "cas_number": "15307-86-5",
+      "iupac_name": "2-[2-(2,6-dichloroanilino)phenyl]acetic acid",
+      "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/3033/PNG",
+      "pubchem_search_url": "https://pubchem.ncbi.nlm.nih.gov/#query=Diclofénac",
+      "description": "Données chimiques initiales documentées; compléter la fiche avec les conditions et références spécifiques au jeu de données retenu.",
+      "spectra": {
+        "uv_vis": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "nm",
+          "y_unit": "Absorbance",
+          "data_file": null,
+          "points": []
+        },
+        "ir": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "cm⁻¹",
+          "y_unit": "Transmittance (%)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        }
+      },
+      "pubchem_cid": "3033",
+      "chemical_data_source": {
+        "name": "PubChem PUG REST / NIST Chemistry WebBook / CAS Common Chemistry",
+        "url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C15307865",
+        "note": "Propriétés chimiques renseignées à partir de références de base de données; revérifier l'identité, la forme et la version de la fiche avant publication."
+      }
+    },
+    {
+      "id": "ketoprofene",
+      "name": "Kétoprofène",
+      "synonyms": [],
+      "category": "Anti-inflammatoire non stéroïdien",
+      "formula": null,
+      "molar_mass_g_mol": null,
+      "cas_number": null,
+      "iupac_name": null,
+      "structure_image_url": null,
+      "pubchem_search_url": "https://pubchem.ncbi.nlm.nih.gov/#query=Kétoprofène",
+      "description": "",
+      "spectra": {
+        "uv_vis": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "nm",
+          "y_unit": "Absorbance",
+          "data_file": null,
+          "points": []
+        },
+        "ir": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "cm⁻¹",
+          "y_unit": "Transmittance (%)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        }
+      },
+      "chemical_data_source": null
+    },
+    {
+      "id": "amoxicilline",
+      "name": "Amoxicilline",
+      "synonyms": [],
+      "category": "Antibiotique",
+      "formula": null,
+      "molar_mass_g_mol": null,
+      "cas_number": null,
+      "iupac_name": null,
+      "structure_image_url": null,
+      "pubchem_search_url": "https://pubchem.ncbi.nlm.nih.gov/#query=Amoxicilline",
+      "description": "",
+      "spectra": {
+        "uv_vis": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "nm",
+          "y_unit": "Absorbance",
+          "data_file": null,
+          "points": []
+        },
+        "ir": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "cm⁻¹",
+          "y_unit": "Transmittance (%)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        }
+      },
+      "chemical_data_source": null
+    },
+    {
+      "id": "ampicilline",
+      "name": "Ampicilline",
+      "synonyms": [],
+      "category": "Antibiotique",
+      "formula": null,
+      "molar_mass_g_mol": null,
+      "cas_number": null,
+      "iupac_name": null,
+      "structure_image_url": null,
+      "pubchem_search_url": "https://pubchem.ncbi.nlm.nih.gov/#query=Ampicilline",
+      "description": "",
+      "spectra": {
+        "uv_vis": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "nm",
+          "y_unit": "Absorbance",
+          "data_file": null,
+          "points": []
+        },
+        "ir": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "cm⁻¹",
+          "y_unit": "Transmittance (%)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        }
+      },
+      "chemical_data_source": null
+    },
+    {
+      "id": "ciprofloxacine",
+      "name": "Ciprofloxacine",
+      "synonyms": [],
+      "category": "Antibiotique",
+      "formula": null,
+      "molar_mass_g_mol": null,
+      "cas_number": null,
+      "iupac_name": null,
+      "structure_image_url": null,
+      "pubchem_search_url": "https://pubchem.ncbi.nlm.nih.gov/#query=Ciprofloxacine",
+      "description": "",
+      "spectra": {
+        "uv_vis": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "nm",
+          "y_unit": "Absorbance",
+          "data_file": null,
+          "points": []
+        },
+        "ir": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "cm⁻¹",
+          "y_unit": "Transmittance (%)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        }
+      },
+      "chemical_data_source": null
+    },
+    {
+      "id": "metronidazole",
+      "name": "Métronidazole",
+      "synonyms": [],
+      "category": "Antimicrobien",
+      "formula": null,
+      "molar_mass_g_mol": null,
+      "cas_number": null,
+      "iupac_name": null,
+      "structure_image_url": null,
+      "pubchem_search_url": "https://pubchem.ncbi.nlm.nih.gov/#query=Métronidazole",
+      "description": "",
+      "spectra": {
+        "uv_vis": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "nm",
+          "y_unit": "Absorbance",
+          "data_file": null,
+          "points": []
+        },
+        "ir": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "cm⁻¹",
+          "y_unit": "Transmittance (%)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        }
+      },
+      "chemical_data_source": null
+    },
+    {
+      "id": "cafeine",
+      "name": "Caféine",
+      "synonyms": [],
+      "category": "Stimulant / composé de référence",
+      "formula": null,
+      "molar_mass_g_mol": null,
+      "cas_number": null,
+      "iupac_name": null,
+      "structure_image_url": null,
+      "pubchem_search_url": "https://pubchem.ncbi.nlm.nih.gov/#query=Caféine",
+      "description": "",
+      "spectra": {
+        "uv_vis": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "nm",
+          "y_unit": "Absorbance",
+          "data_file": null,
+          "points": []
+        },
+        "ir": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "cm⁻¹",
+          "y_unit": "Transmittance (%)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        }
+      },
+      "chemical_data_source": null
+    },
+    {
+      "id": "lidocaine",
+      "name": "Lidocaïne",
+      "synonyms": [],
+      "category": "Anesthésique local",
+      "formula": null,
+      "molar_mass_g_mol": null,
+      "cas_number": null,
+      "iupac_name": null,
+      "structure_image_url": null,
+      "pubchem_search_url": "https://pubchem.ncbi.nlm.nih.gov/#query=Lidocaïne",
+      "description": "",
+      "spectra": {
+        "uv_vis": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "nm",
+          "y_unit": "Absorbance",
+          "data_file": null,
+          "points": []
+        },
+        "ir": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "cm⁻¹",
+          "y_unit": "Transmittance (%)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        }
+      },
+      "chemical_data_source": null
+    },
+    {
+      "id": "propranolol",
+      "name": "Propranolol",
+      "synonyms": [],
+      "category": "Bêta-bloquant",
+      "formula": null,
+      "molar_mass_g_mol": null,
+      "cas_number": null,
+      "iupac_name": null,
+      "structure_image_url": null,
+      "pubchem_search_url": "https://pubchem.ncbi.nlm.nih.gov/#query=Propranolol",
+      "description": "",
+      "spectra": {
+        "uv_vis": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "nm",
+          "y_unit": "Absorbance",
+          "data_file": null,
+          "points": []
+        },
+        "ir": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "cm⁻¹",
+          "y_unit": "Transmittance (%)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        }
+      },
+      "chemical_data_source": null
+    },
+    {
+      "id": "metformine",
+      "name": "Metformine",
+      "synonyms": [],
+      "category": "Antidiabétique",
+      "formula": null,
+      "molar_mass_g_mol": null,
+      "cas_number": null,
+      "iupac_name": null,
+      "structure_image_url": null,
+      "pubchem_search_url": "https://pubchem.ncbi.nlm.nih.gov/#query=Metformine",
+      "description": "",
+      "spectra": {
+        "uv_vis": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "nm",
+          "y_unit": "Absorbance",
+          "data_file": null,
+          "points": []
+        },
+        "ir": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "cm⁻¹",
+          "y_unit": "Transmittance (%)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        }
+      },
+      "chemical_data_source": null
+    },
+    {
+      "id": "omeprazole",
+      "name": "Oméprazole",
+      "synonyms": [],
+      "category": "Inhibiteur de la pompe à protons",
+      "formula": null,
+      "molar_mass_g_mol": null,
+      "cas_number": null,
+      "iupac_name": null,
+      "structure_image_url": null,
+      "pubchem_search_url": "https://pubchem.ncbi.nlm.nih.gov/#query=Oméprazole",
+      "description": "",
+      "spectra": {
+        "uv_vis": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "nm",
+          "y_unit": "Absorbance",
+          "data_file": null,
+          "points": []
+        },
+        "ir": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "cm⁻¹",
+          "y_unit": "Transmittance (%)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        }
+      },
+      "chemical_data_source": null
+    },
+    {
+      "id": "fluoxetine",
+      "name": "Fluoxétine",
+      "synonyms": [],
+      "category": "Antidépresseur",
+      "formula": null,
+      "molar_mass_g_mol": null,
+      "cas_number": null,
+      "iupac_name": null,
+      "structure_image_url": null,
+      "pubchem_search_url": "https://pubchem.ncbi.nlm.nih.gov/#query=Fluoxétine",
+      "description": "",
+      "spectra": {
+        "uv_vis": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "nm",
+          "y_unit": "Absorbance",
+          "data_file": null,
+          "points": []
+        },
+        "ir": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "cm⁻¹",
+          "y_unit": "Transmittance (%)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        }
+      },
+      "chemical_data_source": null
+    },
+    {
+      "id": "diazepam",
+      "name": "Diazépam",
+      "synonyms": [],
+      "category": "Benzodiazépine",
+      "formula": null,
+      "molar_mass_g_mol": null,
+      "cas_number": null,
+      "iupac_name": null,
+      "structure_image_url": null,
+      "pubchem_search_url": "https://pubchem.ncbi.nlm.nih.gov/#query=Diazépam",
+      "description": "",
+      "spectra": {
+        "uv_vis": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "nm",
+          "y_unit": "Absorbance",
+          "data_file": null,
+          "points": []
+        },
+        "ir": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "cm⁻¹",
+          "y_unit": "Transmittance (%)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        }
+      },
+      "chemical_data_source": null
+    },
+    {
+      "id": "loratadine",
+      "name": "Loratadine",
+      "synonyms": [],
+      "category": "Antihistaminique",
+      "formula": null,
+      "molar_mass_g_mol": null,
+      "cas_number": null,
+      "iupac_name": null,
+      "structure_image_url": null,
+      "pubchem_search_url": "https://pubchem.ncbi.nlm.nih.gov/#query=Loratadine",
+      "description": "",
+      "spectra": {
+        "uv_vis": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "nm",
+          "y_unit": "Absorbance",
+          "data_file": null,
+          "points": []
+        },
+        "ir": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "cm⁻¹",
+          "y_unit": "Transmittance (%)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        }
+      },
+      "chemical_data_source": null
+    },
+    {
+      "id": "hydrochlorothiazide",
+      "name": "Hydrochlorothiazide",
+      "synonyms": [],
+      "category": "Diurétique",
+      "formula": null,
+      "molar_mass_g_mol": null,
+      "cas_number": null,
+      "iupac_name": null,
+      "structure_image_url": null,
+      "pubchem_search_url": "https://pubchem.ncbi.nlm.nih.gov/#query=Hydrochlorothiazide",
+      "description": "",
+      "spectra": {
+        "uv_vis": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "nm",
+          "y_unit": "Absorbance",
+          "data_file": null,
+          "points": []
+        },
+        "ir": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "cm⁻¹",
+          "y_unit": "Transmittance (%)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        }
+      },
+      "chemical_data_source": null
+    },
+    {
+      "id": "simvastatine",
+      "name": "Simvastatine",
+      "synonyms": [],
+      "category": "Hypolipémiant",
+      "formula": null,
+      "molar_mass_g_mol": null,
+      "cas_number": null,
+      "iupac_name": null,
+      "structure_image_url": null,
+      "pubchem_search_url": "https://pubchem.ncbi.nlm.nih.gov/#query=Simvastatine",
+      "description": "",
+      "spectra": {
+        "uv_vis": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "nm",
+          "y_unit": "Absorbance",
+          "data_file": null,
+          "points": []
+        },
+        "ir": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "cm⁻¹",
+          "y_unit": "Transmittance (%)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "source_name": null,
+          "source_url": null,
+          "citation": null,
+          "conditions": {},
+          "x_unit": "ppm",
+          "y_unit": "Intensity (a.u.)",
+          "data_file": null,
+          "points": []
+        }
+      },
+      "chemical_data_source": null
+    }
+  ]
+}

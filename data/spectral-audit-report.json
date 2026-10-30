@@ -1,0 +1,1146 @@
+{
+  "report_version": "1.0",
+  "generated_at": "2026-10-30T09:17:04.055Z",
+  "dataset_version": "0.9.30",
+  "scientific_validation": "NOT_CERTIFIED_BY_AUTOMATED_AUDIT",
+  "molecule_count": 20,
+  "totals": {
+    "expected": 80,
+    "numericCurves": 0,
+    "peakLists": 6,
+    "referenceImages": 3,
+    "sourceLinked": 11,
+    "missingSource": 69,
+    "missingAllData": 71
+  },
+  "errors": [],
+  "warnings": [
+    "Aspirine [aspirine]/ir: image de référence seulement; aucune courbe numérique locale.",
+    "Aspirine [aspirine]/nmr_1h: liste de 11 pic(s), pas une courbe complète.",
+    "Aspirine [aspirine]/nmr_13c: liste de 9 pic(s), pas une courbe complète.",
+    "Aspirine [aspirine]/uv_vis: image de référence seulement; aucune courbe numérique locale.",
+    "Paracétamol [paracetamol]/ir: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Paracétamol [paracetamol]/nmr_1h: liste de 15 pic(s), pas une courbe complète.",
+    "Paracétamol [paracetamol]/nmr_13c: liste de 6 pic(s), pas une courbe complète.",
+    "Paracétamol [paracetamol]/uv_vis: image de référence seulement; aucune courbe numérique locale.",
+    "Ibuprofène [ibuprofene]/ir: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Ibuprofène [ibuprofene]/nmr_1h: liste de 21 pic(s), pas une courbe complète.",
+    "Ibuprofène [ibuprofene]/nmr_13c: liste de 10 pic(s), pas une courbe complète.",
+    "Ibuprofène [ibuprofene]/uv_vis: source absente ou insuffisamment identifiée.",
+    "Ibuprofène [ibuprofene]/uv_vis: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Naproxène [naproxene]/ir: source absente ou insuffisamment identifiée.",
+    "Naproxène [naproxene]/ir: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Naproxène [naproxene]/nmr_1h: source absente ou insuffisamment identifiée.",
+    "Naproxène [naproxene]/nmr_1h: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Naproxène [naproxene]/nmr_13c: source absente ou insuffisamment identifiée.",
+    "Naproxène [naproxene]/nmr_13c: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Naproxène [naproxene]/uv_vis: source absente ou insuffisamment identifiée.",
+    "Naproxène [naproxene]/uv_vis: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Diclofénac [diclofenac]/ir: source absente ou insuffisamment identifiée.",
+    "Diclofénac [diclofenac]/ir: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Diclofénac [diclofenac]/nmr_1h: source absente ou insuffisamment identifiée.",
+    "Diclofénac [diclofenac]/nmr_1h: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Diclofénac [diclofenac]/nmr_13c: source absente ou insuffisamment identifiée.",
+    "Diclofénac [diclofenac]/nmr_13c: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Diclofénac [diclofenac]/uv_vis: source absente ou insuffisamment identifiée.",
+    "Diclofénac [diclofenac]/uv_vis: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Kétoprofène [ketoprofene]: formule moléculaire absente.",
+    "Kétoprofène [ketoprofene]/ir: source absente ou insuffisamment identifiée.",
+    "Kétoprofène [ketoprofene]/ir: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Kétoprofène [ketoprofene]/nmr_1h: source absente ou insuffisamment identifiée.",
+    "Kétoprofène [ketoprofene]/nmr_1h: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Kétoprofène [ketoprofene]/nmr_13c: source absente ou insuffisamment identifiée.",
+    "Kétoprofène [ketoprofene]/nmr_13c: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Kétoprofène [ketoprofene]/uv_vis: source absente ou insuffisamment identifiée.",
+    "Kétoprofène [ketoprofene]/uv_vis: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Amoxicilline [amoxicilline]: formule moléculaire absente.",
+    "Amoxicilline [amoxicilline]/ir: source absente ou insuffisamment identifiée.",
+    "Amoxicilline [amoxicilline]/ir: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Amoxicilline [amoxicilline]/nmr_1h: source absente ou insuffisamment identifiée.",
+    "Amoxicilline [amoxicilline]/nmr_1h: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Amoxicilline [amoxicilline]/nmr_13c: source absente ou insuffisamment identifiée.",
+    "Amoxicilline [amoxicilline]/nmr_13c: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Amoxicilline [amoxicilline]/uv_vis: source absente ou insuffisamment identifiée.",
+    "Amoxicilline [amoxicilline]/uv_vis: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Ampicilline [ampicilline]: formule moléculaire absente.",
+    "Ampicilline [ampicilline]/ir: source absente ou insuffisamment identifiée.",
+    "Ampicilline [ampicilline]/ir: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Ampicilline [ampicilline]/nmr_1h: source absente ou insuffisamment identifiée.",
+    "Ampicilline [ampicilline]/nmr_1h: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Ampicilline [ampicilline]/nmr_13c: source absente ou insuffisamment identifiée.",
+    "Ampicilline [ampicilline]/nmr_13c: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Ampicilline [ampicilline]/uv_vis: source absente ou insuffisamment identifiée.",
+    "Ampicilline [ampicilline]/uv_vis: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Ciprofloxacine [ciprofloxacine]: formule moléculaire absente.",
+    "Ciprofloxacine [ciprofloxacine]/ir: source absente ou insuffisamment identifiée.",
+    "Ciprofloxacine [ciprofloxacine]/ir: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Ciprofloxacine [ciprofloxacine]/nmr_1h: source absente ou insuffisamment identifiée.",
+    "Ciprofloxacine [ciprofloxacine]/nmr_1h: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Ciprofloxacine [ciprofloxacine]/nmr_13c: source absente ou insuffisamment identifiée.",
+    "Ciprofloxacine [ciprofloxacine]/nmr_13c: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Ciprofloxacine [ciprofloxacine]/uv_vis: source absente ou insuffisamment identifiée.",
+    "Ciprofloxacine [ciprofloxacine]/uv_vis: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Métronidazole [metronidazole]: formule moléculaire absente.",
+    "Métronidazole [metronidazole]/ir: source absente ou insuffisamment identifiée.",
+    "Métronidazole [metronidazole]/ir: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Métronidazole [metronidazole]/nmr_1h: source absente ou insuffisamment identifiée.",
+    "Métronidazole [metronidazole]/nmr_1h: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Métronidazole [metronidazole]/nmr_13c: source absente ou insuffisamment identifiée.",
+    "Métronidazole [metronidazole]/nmr_13c: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Métronidazole [metronidazole]/uv_vis: source absente ou insuffisamment identifiée.",
+    "Métronidazole [metronidazole]/uv_vis: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Caféine [cafeine]: formule moléculaire absente.",
+    "Caféine [cafeine]/ir: source absente ou insuffisamment identifiée.",
+    "Caféine [cafeine]/ir: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Caféine [cafeine]/nmr_1h: source absente ou insuffisamment identifiée.",
+    "Caféine [cafeine]/nmr_1h: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Caféine [cafeine]/nmr_13c: source absente ou insuffisamment identifiée.",
+    "Caféine [cafeine]/nmr_13c: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Caféine [cafeine]/uv_vis: source absente ou insuffisamment identifiée.",
+    "Caféine [cafeine]/uv_vis: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Lidocaïne [lidocaine]: formule moléculaire absente.",
+    "Lidocaïne [lidocaine]/ir: source absente ou insuffisamment identifiée.",
+    "Lidocaïne [lidocaine]/ir: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Lidocaïne [lidocaine]/nmr_1h: source absente ou insuffisamment identifiée.",
+    "Lidocaïne [lidocaine]/nmr_1h: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Lidocaïne [lidocaine]/nmr_13c: source absente ou insuffisamment identifiée.",
+    "Lidocaïne [lidocaine]/nmr_13c: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Lidocaïne [lidocaine]/uv_vis: source absente ou insuffisamment identifiée.",
+    "Lidocaïne [lidocaine]/uv_vis: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Propranolol [propranolol]: formule moléculaire absente.",
+    "Propranolol [propranolol]/ir: source absente ou insuffisamment identifiée.",
+    "Propranolol [propranolol]/ir: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Propranolol [propranolol]/nmr_1h: source absente ou insuffisamment identifiée.",
+    "Propranolol [propranolol]/nmr_1h: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Propranolol [propranolol]/nmr_13c: source absente ou insuffisamment identifiée.",
+    "Propranolol [propranolol]/nmr_13c: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Propranolol [propranolol]/uv_vis: source absente ou insuffisamment identifiée.",
+    "Propranolol [propranolol]/uv_vis: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Metformine [metformine]: formule moléculaire absente.",
+    "Metformine [metformine]/ir: source absente ou insuffisamment identifiée.",
+    "Metformine [metformine]/ir: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Metformine [metformine]/nmr_1h: source absente ou insuffisamment identifiée.",
+    "Metformine [metformine]/nmr_1h: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Metformine [metformine]/nmr_13c: source absente ou insuffisamment identifiée.",
+    "Metformine [metformine]/nmr_13c: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Metformine [metformine]/uv_vis: source absente ou insuffisamment identifiée.",
+    "Metformine [metformine]/uv_vis: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Oméprazole [omeprazole]: formule moléculaire absente.",
+    "Oméprazole [omeprazole]/ir: source absente ou insuffisamment identifiée.",
+    "Oméprazole [omeprazole]/ir: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Oméprazole [omeprazole]/nmr_1h: source absente ou insuffisamment identifiée.",
+    "Oméprazole [omeprazole]/nmr_1h: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Oméprazole [omeprazole]/nmr_13c: source absente ou insuffisamment identifiée.",
+    "Oméprazole [omeprazole]/nmr_13c: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Oméprazole [omeprazole]/uv_vis: source absente ou insuffisamment identifiée.",
+    "Oméprazole [omeprazole]/uv_vis: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Fluoxétine [fluoxetine]: formule moléculaire absente.",
+    "Fluoxétine [fluoxetine]/ir: source absente ou insuffisamment identifiée.",
+    "Fluoxétine [fluoxetine]/ir: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Fluoxétine [fluoxetine]/nmr_1h: source absente ou insuffisamment identifiée.",
+    "Fluoxétine [fluoxetine]/nmr_1h: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Fluoxétine [fluoxetine]/nmr_13c: source absente ou insuffisamment identifiée.",
+    "Fluoxétine [fluoxetine]/nmr_13c: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Fluoxétine [fluoxetine]/uv_vis: source absente ou insuffisamment identifiée.",
+    "Fluoxétine [fluoxetine]/uv_vis: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Diazépam [diazepam]: formule moléculaire absente.",
+    "Diazépam [diazepam]/ir: source absente ou insuffisamment identifiée.",
+    "Diazépam [diazepam]/ir: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Diazépam [diazepam]/nmr_1h: source absente ou insuffisamment identifiée.",
+    "Diazépam [diazepam]/nmr_1h: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Diazépam [diazepam]/nmr_13c: source absente ou insuffisamment identifiée.",
+    "Diazépam [diazepam]/nmr_13c: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Diazépam [diazepam]/uv_vis: source absente ou insuffisamment identifiée.",
+    "Diazépam [diazepam]/uv_vis: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Loratadine [loratadine]: formule moléculaire absente.",
+    "Loratadine [loratadine]/ir: source absente ou insuffisamment identifiée.",
+    "Loratadine [loratadine]/ir: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Loratadine [loratadine]/nmr_1h: source absente ou insuffisamment identifiée.",
+    "Loratadine [loratadine]/nmr_1h: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Loratadine [loratadine]/nmr_13c: source absente ou insuffisamment identifiée.",
+    "Loratadine [loratadine]/nmr_13c: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Loratadine [loratadine]/uv_vis: source absente ou insuffisamment identifiée.",
+    "Loratadine [loratadine]/uv_vis: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Hydrochlorothiazide [hydrochlorothiazide]: formule moléculaire absente.",
+    "Hydrochlorothiazide [hydrochlorothiazide]/ir: source absente ou insuffisamment identifiée.",
+    "Hydrochlorothiazide [hydrochlorothiazide]/ir: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Hydrochlorothiazide [hydrochlorothiazide]/nmr_1h: source absente ou insuffisamment identifiée.",
+    "Hydrochlorothiazide [hydrochlorothiazide]/nmr_1h: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Hydrochlorothiazide [hydrochlorothiazide]/nmr_13c: source absente ou insuffisamment identifiée.",
+    "Hydrochlorothiazide [hydrochlorothiazide]/nmr_13c: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Hydrochlorothiazide [hydrochlorothiazide]/uv_vis: source absente ou insuffisamment identifiée.",
+    "Hydrochlorothiazide [hydrochlorothiazide]/uv_vis: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Simvastatine [simvastatine]: formule moléculaire absente.",
+    "Simvastatine [simvastatine]/ir: source absente ou insuffisamment identifiée.",
+    "Simvastatine [simvastatine]/ir: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Simvastatine [simvastatine]/nmr_1h: source absente ou insuffisamment identifiée.",
+    "Simvastatine [simvastatine]/nmr_1h: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Simvastatine [simvastatine]/nmr_13c: source absente ou insuffisamment identifiée.",
+    "Simvastatine [simvastatine]/nmr_13c: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée.",
+    "Simvastatine [simvastatine]/uv_vis: source absente ou insuffisamment identifiée.",
+    "Simvastatine [simvastatine]/uv_vis: aucune donnée numérique, liste de pics ou image de référence locale/externe déclarée."
+  ],
+  "molecules": [
+    {
+      "id": "aspirine",
+      "name": "Aspirine",
+      "spectra": {
+        "ir": {
+          "status": "reference_image_only_download_restricted",
+          "points": 0,
+          "peaks": 0,
+          "image": true,
+          "source": true,
+          "source_url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C50782&Index=1&Type=IR-SPEC",
+          "data_file": null
+        },
+        "nmr_1h": {
+          "status": "published_peak_list_available_not_full_spectrum",
+          "points": 0,
+          "peaks": 11,
+          "image": false,
+          "source": true,
+          "source_url": "https://hmdb.ca/spectra/nmr_one_d/1776",
+          "data_file": "aspirin_nmr_1h_peaks.csv"
+        },
+        "nmr_13c": {
+          "status": "published_peak_list_available_not_full_spectrum",
+          "points": 0,
+          "peaks": 9,
+          "image": false,
+          "source": true,
+          "source_url": "https://hmdb.ca/spectra/nmr_one_d/3097",
+          "data_file": "aspirin_nmr_13c_peaks.csv"
+        },
+        "uv_vis": {
+          "status": "reference_image_available_numeric_jcamp_not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": true,
+          "source": true,
+          "source_url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C50782&Mask=E8F&Units=CAL",
+          "data_file": null
+        }
+      },
+      "summary": {
+        "completeNumericCurves": 0,
+        "peakLists": 2,
+        "images": 2,
+        "missing": 0
+      }
+    },
+    {
+      "id": "paracetamol",
+      "name": "Paracétamol",
+      "spectra": {
+        "ir": {
+          "status": "source_available_data_not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": true,
+          "source_url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C103902&Type=IR-SPEC",
+          "data_file": null
+        },
+        "nmr_1h": {
+          "status": "experimental_peak_list_integrated_not_full_spectrum",
+          "points": 0,
+          "peaks": 15,
+          "image": false,
+          "source": true,
+          "source_url": "https://hmdb.ca/spectra/nmr_one_d/2079",
+          "data_file": "data/paracetamol_nmr_1h_hmdb2079_peaks.csv"
+        },
+        "nmr_13c": {
+          "status": "experimental_peak_list_integrated_not_full_spectrum",
+          "points": 0,
+          "peaks": 6,
+          "image": false,
+          "source": true,
+          "source_url": "https://hmdb.ca/spectra/nmr_one_d/2773",
+          "data_file": "data/paracetamol_nmr_13c_hmdb2773_peaks.csv"
+        },
+        "uv_vis": {
+          "status": "reference_image_available_numeric_jcamp_not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": true,
+          "source": true,
+          "source_url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C103902&Mask=1E9F",
+          "data_file": null
+        }
+      },
+      "summary": {
+        "completeNumericCurves": 0,
+        "peakLists": 2,
+        "images": 1,
+        "missing": 1
+      }
+    },
+    {
+      "id": "ibuprofene",
+      "name": "Ibuprofène",
+      "spectra": {
+        "ir": {
+          "status": "external_reference_only_not_digitized",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": true,
+          "source_url": "https://sdbs.db.aist.go.jp/CompoundLanding.aspx?sdbsno=41004",
+          "data_file": null
+        },
+        "nmr_1h": {
+          "status": "experimental_peak_list_integrated_not_full_spectrum",
+          "points": 0,
+          "peaks": 21,
+          "image": false,
+          "source": true,
+          "source_url": "https://hmdb.ca/spectra/nmr_one_d/1804",
+          "data_file": "data/ibuprofen_nmr_1h_hmdb1804_peaks.csv"
+        },
+        "nmr_13c": {
+          "status": "experimental_peak_list_integrated_not_full_spectrum",
+          "points": 0,
+          "peaks": 10,
+          "image": false,
+          "source": true,
+          "source_url": "https://hmdb.ca/spectra/nmr_one_d/2954",
+          "data_file": "data/ibuprofen_nmr_13c_hmdb2954_peaks.csv"
+        },
+        "uv_vis": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        }
+      },
+      "summary": {
+        "completeNumericCurves": 0,
+        "peakLists": 2,
+        "images": 0,
+        "missing": 2
+      }
+    },
+    {
+      "id": "naproxene",
+      "name": "Naproxène",
+      "spectra": {
+        "ir": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "uv_vis": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        }
+      },
+      "summary": {
+        "completeNumericCurves": 0,
+        "peakLists": 0,
+        "images": 0,
+        "missing": 4
+      }
+    },
+    {
+      "id": "diclofenac",
+      "name": "Diclofénac",
+      "spectra": {
+        "ir": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "uv_vis": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        }
+      },
+      "summary": {
+        "completeNumericCurves": 0,
+        "peakLists": 0,
+        "images": 0,
+        "missing": 4
+      }
+    },
+    {
+      "id": "ketoprofene",
+      "name": "Kétoprofène",
+      "spectra": {
+        "ir": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "uv_vis": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        }
+      },
+      "summary": {
+        "completeNumericCurves": 0,
+        "peakLists": 0,
+        "images": 0,
+        "missing": 4
+      }
+    },
+    {
+      "id": "amoxicilline",
+      "name": "Amoxicilline",
+      "spectra": {
+        "ir": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "uv_vis": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        }
+      },
+      "summary": {
+        "completeNumericCurves": 0,
+        "peakLists": 0,
+        "images": 0,
+        "missing": 4
+      }
+    },
+    {
+      "id": "ampicilline",
+      "name": "Ampicilline",
+      "spectra": {
+        "ir": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "uv_vis": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        }
+      },
+      "summary": {
+        "completeNumericCurves": 0,
+        "peakLists": 0,
+        "images": 0,
+        "missing": 4
+      }
+    },
+    {
+      "id": "ciprofloxacine",
+      "name": "Ciprofloxacine",
+      "spectra": {
+        "ir": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "uv_vis": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        }
+      },
+      "summary": {
+        "completeNumericCurves": 0,
+        "peakLists": 0,
+        "images": 0,
+        "missing": 4
+      }
+    },
+    {
+      "id": "metronidazole",
+      "name": "Métronidazole",
+      "spectra": {
+        "ir": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "uv_vis": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        }
+      },
+      "summary": {
+        "completeNumericCurves": 0,
+        "peakLists": 0,
+        "images": 0,
+        "missing": 4
+      }
+    },
+    {
+      "id": "cafeine",
+      "name": "Caféine",
+      "spectra": {
+        "ir": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "uv_vis": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        }
+      },
+      "summary": {
+        "completeNumericCurves": 0,
+        "peakLists": 0,
+        "images": 0,
+        "missing": 4
+      }
+    },
+    {
+      "id": "lidocaine",
+      "name": "Lidocaïne",
+      "spectra": {
+        "ir": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "uv_vis": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        }
+      },
+      "summary": {
+        "completeNumericCurves": 0,
+        "peakLists": 0,
+        "images": 0,
+        "missing": 4
+      }
+    },
+    {
+      "id": "propranolol",
+      "name": "Propranolol",
+      "spectra": {
+        "ir": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "uv_vis": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        }
+      },
+      "summary": {
+        "completeNumericCurves": 0,
+        "peakLists": 0,
+        "images": 0,
+        "missing": 4
+      }
+    },
+    {
+      "id": "metformine",
+      "name": "Metformine",
+      "spectra": {
+        "ir": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "uv_vis": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        }
+      },
+      "summary": {
+        "completeNumericCurves": 0,
+        "peakLists": 0,
+        "images": 0,
+        "missing": 4
+      }
+    },
+    {
+      "id": "omeprazole",
+      "name": "Oméprazole",
+      "spectra": {
+        "ir": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "uv_vis": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        }
+      },
+      "summary": {
+        "completeNumericCurves": 0,
+        "peakLists": 0,
+        "images": 0,
+        "missing": 4
+      }
+    },
+    {
+      "id": "fluoxetine",
+      "name": "Fluoxétine",
+      "spectra": {
+        "ir": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "uv_vis": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        }
+      },
+      "summary": {
+        "completeNumericCurves": 0,
+        "peakLists": 0,
+        "images": 0,
+        "missing": 4
+      }
+    },
+    {
+      "id": "diazepam",
+      "name": "Diazépam",
+      "spectra": {
+        "ir": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "uv_vis": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        }
+      },
+      "summary": {
+        "completeNumericCurves": 0,
+        "peakLists": 0,
+        "images": 0,
+        "missing": 4
+      }
+    },
+    {
+      "id": "loratadine",
+      "name": "Loratadine",
+      "spectra": {
+        "ir": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "uv_vis": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        }
+      },
+      "summary": {
+        "completeNumericCurves": 0,
+        "peakLists": 0,
+        "images": 0,
+        "missing": 4
+      }
+    },
+    {
+      "id": "hydrochlorothiazide",
+      "name": "Hydrochlorothiazide",
+      "spectra": {
+        "ir": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "uv_vis": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        }
+      },
+      "summary": {
+        "completeNumericCurves": 0,
+        "peakLists": 0,
+        "images": 0,
+        "missing": 4
+      }
+    },
+    {
+      "id": "simvastatine",
+      "name": "Simvastatine",
+      "spectra": {
+        "ir": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_1h": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "nmr_13c": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        },
+        "uv_vis": {
+          "status": "not_imported",
+          "points": 0,
+          "peaks": 0,
+          "image": false,
+          "source": false,
+          "source_url": null,
+          "data_file": null
+        }
+      },
+      "summary": {
+        "completeNumericCurves": 0,
+        "peakLists": 0,
+        "images": 0,
+        "missing": 4
+      }
+    }
+  ],
+  "policy": "A source link, an image, a peak list, and a complete numeric spectrum are different evidence types. Automated checks do not validate scientific authenticity."
+}

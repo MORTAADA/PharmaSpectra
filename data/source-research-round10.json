@@ -1,0 +1,78 @@
+{
+  "release": "0.9.31",
+  "date": "2026-10-30",
+  "scope": "Cross-source follow-up: ibuprofen IR sample provenance and paracetamol UV-Vis research dataset",
+  "findings": [
+    {
+      "compound": "Ibuprofen (racemic API reference)",
+      "spectrum": "ATR-IR",
+      "status": "verified_external_reference; numerical trace not imported",
+      "primary_source": {
+        "title": "SpectraBase — Ibuprofen ATR-IR Spectrum FFnOBP2bgVh",
+        "publisher": "John Wiley & Sons / Sigma-Aldrich sample record",
+        "url": "https://spectrabase.com/spectrum/FFnOBP2bgVh",
+        "sample_source": "Aldrich",
+        "catalog_number": "284742",
+        "purity_reported": "99%",
+        "cas": "15687-27-1"
+      },
+      "limitation": "The page identifies a reference sample and spectrum but the numerical trace is not freely retrieved/validated in this workflow; database copyright/access terms apply.",
+      "integration_decision": "External reference only; do not digitize screenshot or claim local numerical integration."
+    },
+    {
+      "compound": "Ibuprofen (S)-(+)",
+      "spectrum": "IR, 1H NMR, 13C NMR",
+      "status": "verified_external_reference; numerical trace not imported",
+      "primary_source": {
+        "title": "SDBS Compound Landing — SDBS No. 41004",
+        "publisher": "AIST, Japan",
+        "url": "https://sdbs.db.aist.go.jp/CompoundLanding.aspx?sdbsno=41004",
+        "records": [
+          "IR Nujol: SDBS-IR2013-77206ND",
+          "IR KBr: SDBS-IR2013-80589ND",
+          "13C NMR: SDBS-CDS-13-198",
+          "1H NMR: SDBS-NMR-HSP-40-997"
+        ]
+      },
+      "identity_caveat": "This record is explicitly the S enantiomer and must not be represented as a racemic API measurement.",
+      "rights_note": "AIST states commercial/profit-making reuse requires prior permission and requests acknowledgement.",
+      "integration_decision": "Keep as external source reference; do not merge with racemic ibuprofen measurements."
+    },
+    {
+      "compound": "Paracetamol (single crystals and face impurities)",
+      "spectrum": "UV-Visible",
+      "status": "verified_research_dataset_metadata; raw files not downloaded",
+      "primary_source": {
+        "title": "The impact of paracetamol impurities on face properties: investigating the surface of single crystals using TOF-SIMS — dataset",
+        "publisher": "University of Strathclyde",
+        "doi": "10.15129/7e48f205-e591-465c-89e2-2fc44055a1a7",
+        "url": "https://pureportal.strath.ac.uk/en/datasets/data-for-the-impact-of-paracetamol-impurities-on-face-properties-/",
+        "date_available": "2018-03-21",
+        "license": "CC BY 4.0",
+        "contents": "Dataset description includes UV-Vis spectrometry alongside AFM, TOF-SIMS, Raman microscopy, microscopy and other measurements."
+      },
+      "limitation": "The listed archive is approximately 6.48 GB and contains mixed experiments; UV-Vis files must be isolated and sample/conditions verified before importing.",
+      "integration_decision": "Register as a research-data source only; no absorbance points imported."
+    },
+    {
+      "compound": "Ibuprofen",
+      "spectrum": "IR",
+      "status": "literature_cross_check_only",
+      "primary_source": {
+        "title": "RSC supplementary information: Physical Chemistry Chemical Physics, c9cp04056k",
+        "url": "https://www.rsc.org/suppdata/c9/cp/c9cp04056k/c9cp04056k1.pdf",
+        "reported_features_cm-1": [
+          600,
+          1100,
+          1746,
+          3000,
+          3651
+        ]
+      },
+      "limitation": "The reported values are literature peak descriptions, not a full numerical spectrum file.",
+      "integration_decision": "Do not use the listed approximate bands to synthesize a continuous curve."
+    }
+  ],
+  "data_integrated_this_release": false,
+  "scientific_note": "This release adds source-audit records only. It does not add new experimental spectrum points or full curves."
+}

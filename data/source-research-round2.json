@@ -1,0 +1,60 @@
+{
+  "project_version": "0.9.20",
+  "purpose": "Registre de recherche multi-source; présence d’un lien ne signifie pas que les données sont téléchargées ou intégrées.",
+  "sources": [
+    {
+      "name": "NIST Chemistry WebBook",
+      "type": "UV-Visible expérimental",
+      "compound": "Aspirine",
+      "url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C50782&Mask=E8F&Units=CAL",
+      "data_url": "https://webbook.nist.gov/cgi/cbook.cgi?Index=0&JCAMP=C50782&Type=UVVis",
+      "image_url": "https://webbook.nist.gov/cgi/cbook.cgi?Index=0&Large=on&Spec=C50782&Type=UVVis",
+      "metadata": "Lang (éditeur), 1962; RAS UV No. 19697; instrument Unicam SP 500.",
+      "verified_in_this_round": true,
+      "local_data_status": "image_reference_only; JCAMP advertised by NIST, not downloaded into this archive",
+      "limitations": "Do not infer or digitize numeric points from the image without explicit provenance and error assessment."
+    },
+    {
+      "name": "NIST Chemistry WebBook",
+      "type": "UV-Visible expérimental",
+      "compound": "Paracétamol / acétaminophène",
+      "url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C103902&Mask=1E9F",
+      "data_url": "https://webbook.nist.gov/cgi/cbook.cgi?Index=0&JCAMP=C103902&Type=UVVis",
+      "image_url": "https://webbook.nist.gov/cgi/cbook.cgi?Index=0&Large=on&Spec=C103902&Type=UVVis",
+      "metadata": "Lang (éditeur), 1965; RAS UV No. 19635; instrument Hilger Uvispek.",
+      "verified_in_this_round": true,
+      "local_data_status": "image_reference_only; JCAMP advertised by NIST, not downloaded into this archive",
+      "limitations": "Source metadata should be reviewed on the source page before quantitative interpretation."
+    },
+    {
+      "name": "Human Metabolome Database (HMDB)",
+      "type": "RMN ¹H expérimentale",
+      "compound": "Paracétamol / acétaminophène",
+      "url": "https://www.hmdb.ca/spectra/nmr_one_d/2079",
+      "metadata": "Reported in project source audit: 400 MHz; DMSO-d6; JEOL; TMS reference; peak-list CSV advertised.",
+      "verified_in_this_round": false,
+      "local_data_status": "external_record_only; no CSV imported",
+      "limitations": "The page returned HTTP 403 in this research session; conditions are carried forward from the previous source audit, not independently revalidated now."
+    },
+    {
+      "name": "Human Metabolome Database (HMDB) downloads",
+      "type": "Bulk raw NMR FID and peak lists",
+      "compound": "Multiple metabolites; compound-level filtering required",
+      "url": "https://www.hmdb.ca/downloads",
+      "metadata": "HMDB publishes downloads for NMR FID files and NMR peak-list files; redistribution may require permission and citation.",
+      "verified_in_this_round": true,
+      "local_data_status": "download catalogue only; no bulk archive included",
+      "limitations": "Bulk files are large and HMDB notes restrictions/requirements for reuse, especially commercial reuse."
+    },
+    {
+      "name": "SDBS / AIST Japan",
+      "type": "IR, RMN ¹H, RMN ¹³C and other spectra lookup",
+      "compound": "Organic compounds; availability varies by compound",
+      "url": "https://sdbs.db.aist.go.jp/sdbs/cgi-bin/cre_index.cgi?lang=eng",
+      "verified_in_this_round": true,
+      "local_data_status": "search route only; no SDBS files imported",
+      "limitations": "A catalogue link is not evidence that a specific medicine has all four spectra available."
+    }
+  ],
+  "decision": "No new numerical spectral points added in v0.9.20. Only data downloaded and validated locally may be marked as a local numerical curve."
+}

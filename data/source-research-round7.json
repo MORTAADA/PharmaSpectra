@@ -1,0 +1,40 @@
+{
+  "release": "0.9.28",
+  "date": "2026-10-30",
+  "changes": [
+    {
+      "compound": "Ibuprofen",
+      "spectrum": "13C NMR",
+      "status": "experimental peak list integrated",
+      "source": "HMDB Spectra ID 2954, surfaced via PubChem CID 3672",
+      "url": "https://hmdb.ca/spectra/nmr_one_d/2954",
+      "conditions": {
+        "frequency_MHz": 50.32,
+        "solvent": "CDCl3",
+        "reference": "TMS"
+      },
+      "peak_count": 10,
+      "file": "data/ibuprofen_nmr_13c_hmdb2954_peaks.csv",
+      "limitation": "10 published shift/intensity pairs; not a continuous spectrum; no interpolation or synthetic points."
+    },
+    {
+      "compound": "Ibuprofen",
+      "spectrum": "1H-13C HSQC",
+      "status": "source documented; 2D data not imported into 1D spectrum cards",
+      "source": "HMDB Spectra ID 1744",
+      "url": "https://hmdb.ca/spectra/nmr_two_d/1744",
+      "conditions": {
+        "frequency_MHz": 600,
+        "solvent": "CDCl3",
+        "instrument": "Bruker",
+        "concentration_mM": 50.0,
+        "temperature_C": 25.0,
+        "reference": "DSS"
+      },
+      "limitation": "2D HSQC is distinct from 1D 13C/1H spectra; retain as a separate reference."
+    }
+  ],
+  "validation": {
+    "claims": "10 published 13C peak pairs integrated; 2D HSQC source recorded separately; no complete curve claimed."
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "version": "0.9.21",
+  "compound": "Paracétamol (acetaminophen; HMDB0001859)",
+  "summary": "Nouvelle vérification de sources HMDB expérimentales pour les deux noyaux RMN 1D. Les pages source annoncent des listes de pics CSV, mais les fichiers n’ont pas été téléchargés/importés; aucune courbe ni aucun pic nouveau n’est simulé.",
+  "sources": [
+    {
+      "type": "1H NMR",
+      "status": "experimental_peak_list_available_not_full_spectrum",
+      "url": "https://hmdb.ca/spectra/nmr_one_d/2079",
+      "conditions": {
+        "solvent": "DMSO-d6",
+        "instrument": "JEOL",
+        "frequency_MHz": 400,
+        "reference": "TMS"
+      },
+      "available_file": "Peak List (CSV), 279 Bytes",
+      "local_file": null
+    },
+    {
+      "type": "13C NMR",
+      "status": "experimental_peak_list_available_not_full_spectrum",
+      "url": "https://hmdb.ca/spectra/nmr_one_d/2773",
+      "conditions": {
+        "solvent": "DMSO-d6",
+        "instrument": "JEOL",
+        "frequency_MHz": 22.53,
+        "reference": "TMS"
+      },
+      "available_file": "Peak List (CSV), 80 Bytes",
+      "local_file": null
+    },
+    {
+      "type": "1H NMR predicted (separate, not substituted for experiment)",
+      "status": "predicted_jcamp_available_not_imported",
+      "url": "https://hmdb.ca/spectra/nmr_one_d/9708",
+      "conditions": {
+        "solvent": "D2O",
+        "frequency_MHz": 400,
+        "model": "predicted"
+      },
+      "available_file": "JCAMP-DX (JDX), 76.4 KB",
+      "local_file": null
+    }
+  ],
+  "limitations": [
+    "HMDB pages confirm availability and conditions, but this environment did not provide the raw CSV/JDX contents for local integration.",
+    "Predicted data are kept explicitly separate from experimental records.",
+    "No new numeric peaks or complete curves have been fabricated."
+  ],
+  "licensing_note": "HMDB states that commercial redistribution requires explicit permission and acknowledgment; review terms before redistributing downloaded bulk data."
+}
