@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Base de données spectrale de molécules médicamenteuses.">
+  <title>PharmaSpectra — Base spectrale</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="PharmaSpectra accueil"><span class="brand-mark">⚗</span><span><strong>Pharma<span>Spectra</span></strong><small>Base de données des médicaments et spectres chimiques</small></span></a>
+    <label class="searchbox" for="searchInput"><input id="searchInput" type="search" placeholder="Rechercher un médicament…" autocomplete="off" aria-label="Rechercher un médicament"><span aria-hidden="true">⌕</span></label>
+    <div class="top-actions"><span class="version">Version 0.9.45</span><button class="header-import" id="importSpectrumBtn" type="button">⇧ Importer un spectre</button><button class="header-import" id="exportDataBtn" type="button" title="Exporter les spectres importés dans un JSON local">Exporter JSON</button><input id="spectrumFileInput" type="file" accept=".jdx,.dx,.jcamp,.csv,.tsv,.txt" hidden><a href="#sources">ⓘ À propos</a></div>
+  </header>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="#" class="nav-link active">◈ <span>Médicaments</span></a>
+        <a href="#spectraSection" class="nav-link">∿ <span>Spectres</span></a>
+        <a href="#importHelp" class="nav-link" id="sidebarImportLink">⇧ <span>Importer un spectre</span></a>
+        <a href="#sources" class="nav-link">ⓘ <span>À propos</span></a>
+      </nav>
+      <div class="side-heading"><span>Les 20 médicaments</span><span class="pill" id="sideCount">—</span></div>
+      <div id="moleculeList" class="molecule-list" aria-label="Liste des molécules"></div>
+      <div class="sidebar-note">⚗ <span>Des données fiables pour une meilleure compréhension des médicaments.</span></div>
+    </aside>
+    <main class="main-content">
+      <div class="hero-strip"><div><p class="eyebrow">CHIMIE ANALYTIQUE · PHARMACIE</p><h1>PharmaSpectra</h1><p>Structure moléculaire, composition chimique et spectres documentés au même endroit.</p></div><span class="catalog-count" id="countLabel">Chargement…</span></div>
+      <section id="detailPanel" class="detail-panel" aria-live="polite"><div class="empty-state"><div class="empty-icon">⌬</div><h2>Choisissez une molécule</h2><p>Cliquez sur un médicament : sa structure, sa composition et les quatre spectres apparaîtront ensemble sur cette page.</p></div></section>
+      <section id="importHelp" class="import-help"><strong>Importer des données expérimentales</strong><span>Formats acceptés : JCAMP-DX (.jdx, .dx, .jcamp), CSV, TSV ou TXT avec deux colonnes numériques X et Y. Les données importées restent en session jusqu’à export JSON; vérifiez la source et les unités avant validation.</span><button type="button" id="importHelpBtn">Choisir un fichier</button></section>
+      <section id="sources" class="sources-section"><div><p class="eyebrow">TRAÇABILITÉ SCIENTIFIQUE</p><h2>Chaque donnée doit avoir sa source.</h2><p>Les tracés ne sont affichés que si des points numériques et une source sont renseignés. Les données manquantes ne sont jamais inventées.</p></div><div class="source-links"><a href="https://pubchem.ncbi.nlm.nih.gov/" target="_blank" rel="noreferrer">PubChem ↗</a><a href="https://webbook.nist.gov/" target="_blank" rel="noreferrer">NIST Chemistry WebBook ↗</a></div></section>
+    </main>
+  </div>
+  <footer><span>PharmaSpectra · Prototype académique</span><span>HTML · CSS · JavaScript · JSON</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
