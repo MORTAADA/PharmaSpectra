@@ -82,3 +82,20 @@ body{background:#f6f9fd;color:#1b3b63;font-family:Arial,"DM Sans",sans-serif;fon
 .molecule-list{counter-reset:mol}.molecule-item .mol-label strong::before{counter-increment:mol;content:counter(mol) ". ";color:#7d93ad;font-weight:400}
 @media(max-width:850px){.sidebar{top:auto;height:auto}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* v1.0.1 — structure chimique : image toujours entière, jamais rognée */
+.structure-box-large{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr);place-items:stretch;height:auto;aspect-ratio:1/1;max-height:300px;width:100%;overflow:hidden;box-sizing:border-box;padding:10px;background:#fff;border-radius:0}
+.structure-box-large img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center;border-radius:6px;background:#f4f4f4}
+.structure-box-large:not(:has(img)){aspect-ratio:auto;min-height:180px;place-items:center}
+.structure-card>.inline-link{display:inline-block;margin:10px 14px 12px}
+@media(max-width:850px){.structure-box-large{max-height:260px}}
+
+/* v1.0.2 — onglets, formulaire d'import, structure sur fond blanc */
+.tabs{display:flex;gap:4px;border-bottom:1px solid #dce8f5;margin:0 0 16px;overflow-x:auto}.tab{background:none;border:0;border-bottom:3px solid transparent;padding:11px 16px;font:600 13px Arial,sans-serif;color:#5b7699;cursor:pointer;white-space:nowrap}.tab:hover{color:#0866c7}.tab.active{color:#0866c7;border-bottom-color:#1685e8}
+.tab-pane{display:none}#detailPanel[data-tab="references"] .pane-references,#detailPanel[data-tab="files"] .pane-files{display:block}
+#detailPanel[data-tab="spectra"] .chemistry-summary,#detailPanel[data-tab="references"] .chemistry-summary,#detailPanel[data-tab="files"] .chemistry-summary,#detailPanel[data-tab="references"] .spectra-section,#detailPanel[data-tab="files"] .spectra-section{display:none}
+.files-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #dce8f5;font-size:12px}.files-table th,.files-table td{padding:9px 12px;text-align:left;border-bottom:1px solid #e4edf7}.files-table th{background:#f4f9ff;color:#234a78}.files-actions{display:flex;gap:10px;margin-top:12px}
+.btn-ok,.btn-cancel{border-radius:8px;padding:9px 16px;font:600 12px Arial,sans-serif;cursor:pointer}.btn-ok{background:#1685e8;color:#fff;border:1px solid #1685e8}.btn-cancel{background:#fff;color:#1769ba;border:1px solid #c8e0fa}
+.import-dialog{border:0;border-radius:12px;padding:0;width:min(520px,94vw);box-shadow:0 20px 60px rgba(10,30,60,.35)}.import-dialog::backdrop{background:rgba(10,30,60,.45)}
+.import-form{display:grid;gap:10px;padding:22px}.import-form h3{margin:0;color:#173d69;font-size:16px;overflow-wrap:anywhere}.import-form p{margin:0;font-size:12px}.import-form label{display:grid;gap:4px;font-size:11px;color:#55718f}.import-form input,.import-form select,.import-form textarea{font:13px Arial,sans-serif;padding:8px 10px;border:1px solid #cfdff1;border-radius:6px;color:#173d69}.import-form .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.import-form .actions{display:flex;justify-content:flex-end;gap:10px;margin-top:6px}
+.structure-box-large img{background:#fff;filter:brightness(1.06);mix-blend-mode:multiply}

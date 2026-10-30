@@ -8,6 +8,7 @@ const SPECTRA = {
 let molecules = [];
 let selectedId = null;
 let activeSpectrum = "uv_vis";
+let activeTab = "overview";
 let sessionImports = {};
 
 const $ = (selector) => document.querySelector(selector);
@@ -15,7 +16,7 @@ const escapeHTML = (value) => String(value ?? "").replace(/[&<>"']/g, c => ({
   "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
 }[c]));
 
-const APP_VERSION = "1.0.0";
+const APP_VERSION = "1.0.2";
 // --- IndexedDB : catalogue + spectres importés persistants (hors ligne, rapide) ---
 const DB_NAME = "pharmaspectra", DB_VERSION = 1;
 const idb = {
@@ -167,12 +168,16 @@ function renderDetails(m) {
       <div class="drug-heading"><div class="drug-icon">◈<small>#${String(molecules.findIndex(x=>x.id===m.id)+1).padStart(2,'0')}</small></div><div><h2>${escapeHTML(m.name)}</h2><p>${escapeHTML(m.iupac_name || m.category || "Fiche moléculaire")}</p><span class="category-chip">${escapeHTML(m.category || "Médicament")}</span></div></div>
       <div class="profile-actions"><a class="btn light-btn" href="${escapeHTML(m.pubchem_search_url || "https://pubchem.ncbi.nlm.nih.gov/")}" target="_blank" rel="noreferrer">Voir sur PubChem ↗</a></div>
     </div>
+    <nav class="tabs" role="tablist" aria-label="Sections de la fiche">${[["overview","Vue générale"],["spectra","Spectres"],["references","Références"],["files","Fichiers"]].map(([id,l])=>`<button type="button" role="tab" class="tab ${id===activeTab?"active":""}" data-tab="${id}" aria-selected="${id===activeTab}">${l}</button>`).join("")}</nav>
     <div class="chemistry-summary">
       <section class="chemistry-card structure-card"><h3 class="section-title">Structure chimique</h3><div class="structure-box structure-box-large">${structure}</div><a class="inline-link" href="${escapeHTML(m.chemical_data_source?.url || m.pubchem_search_url || "https://pubchem.ncbi.nlm.nih.gov/")}" target="_blank" rel="noreferrer">Consulter la structure ↗</a></section>
       <section class="chemistry-card composition-card"><h3 class="section-title">Composition chimique</h3><div class="property-list">${property("Formule moléculaire", m.formula)}${property("Masse molaire", m.molar_mass_g_mol, " g/mol")}${property("Numéro CAS", m.cas_number)}${property("Nom IUPAC", m.iupac_name)}</div>${m.chemical_data_source ? `<p class="citation">Source : <strong>${escapeHTML(m.chemical_data_source.name)}</strong></p>` : ""}</section>
     </div>
     <section id="spectraSection" class="spectra-section"><div class="spectra-head"><div><p class="eyebrow">ANALYSE SPECTRALE</p><h3 class="section-title">Spectres analytiques</h3></div><span class="pill">${spectrumCount} spectre(s) numérique(s) intégré(s)</span></div><div class="spectra-grid">${cards}</div><div class="warning">ⓘ Les spectres ne sont tracés que si des points numériques sont disponibles. Les listes de pics ne sont pas des spectres complets. Les imports locaux sont temporaires et doivent être vérifiés avant interprétation.</div></section>
-    ${renderSourceExplorer(m)}`;
+    <div class="tab-pane pane-references">${renderSourceExplorer(m)}</div>
+    <section class="tab-pane pane-files">${renderFilesPanel(m)}</section>`;
+  $("#detailPanel").dataset.tab = activeTab;
+  $("#detailPanel").querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => { activeTab = b.dataset.tab; renderDetails(m); }));
   for (const key of Object.keys(SPECTRA)) {
     const spec = sessionImports[`${m.id}:${key}`] || m.spectra?.[key];
     const node = document.querySelector(`#plot-${key}`);
@@ -224,6 +229,18 @@ function renderDetails(m) {
       drawPeakPlot(peakNode, spec.peaks, SPECTRA[key].x);
     }
   }
+}
+
+
+function renderFilesPanel(m) {
+  const rows = Object.entries(SPECTRA).map(([key, s]) => {
+    const spec = sessionImports[`${m.id}:${key}`] || m.spectra?.[key] || {};
+    const n = spec.points?.length || 0, p = spec.peaks?.length || 0;
+    const state = n >= 2 ? `${n} points` : p ? `${p} pics publiés` : "Aucune donnée";
+    const dl = spec.data_download_url ? `<a href="${escapeHTML(spec.data_download_url)}" target="_blank" rel="noreferrer">Télécharger ↗</a>` : "—";
+    return `<tr><td>${s.label}</td><td>${escapeHTML(spec.data_file || "—")}</td><td>${state}</td><td>${dl}</td></tr>`;
+  }).join("");
+  return `<h3 class="section-title">Fichiers de données — ${escapeHTML(m.name)}</h3><table class="files-table"><thead><tr><th>Spectre</th><th>Fichier</th><th>État</th><th>Source de téléchargement</th></tr></thead><tbody>${rows}</tbody></table><p class="muted">Les spectres importés sont enregistrés dans IndexedDB (ce navigateur).</p><div class="files-actions"><button type="button" class="btn-ok" onclick="document.getElementById('spectrumFileInput').click()">⇧ Importer un fichier</button><button type="button" class="btn-cancel" onclick="exportIntegratedData()">Exporter JSON</button></div>`;
 }
 
 function renderSourceExplorer(m) {
@@ -614,31 +631,73 @@ function parseSpectrumFile(text, filename) {
   return deduplicated;
 }
 
+
+// --- Formulaire d'import (remplace les prompt() successifs) ---
+const conditionsFrom = (jcampMetadata) => [jcampMetadata.solvent && `Solvant: ${jcampMetadata.solvent}`, jcampMetadata.observe_frequency && `Fréquence: ${jcampMetadata.observe_frequency}`, jcampMetadata.nucleus && `Noyau: ${jcampMetadata.nucleus}`, jcampMetadata.instrument && `Appareil: ${jcampMetadata.instrument}`, jcampMetadata.scans && `Accumulations: ${jcampMetadata.scans}`, jcampMetadata.pulse_sequence && `Séquence: ${jcampMetadata.pulse_sequence}`].filter(Boolean).join('; ');
+function guessSpectrumKey(name, meta) {
+  const n = `${name} ${meta.nucleus || ''}`.toLowerCase();
+  if (/13c|c-?13/.test(n)) return 'nmr_13c';
+  if (/1h|h-?1|proton|nmr|rmn/.test(n)) return 'nmr_1h';
+  if (/uv|vis/.test(n)) return 'uv_vis';
+  return 'ir';
+}
+function openImportDialog(file, meta, m) {
+  return new Promise(resolve => {
+    let dlg = document.getElementById('importDialog');
+    dlg?.remove();
+    dlg = document.createElement('dialog'); dlg.id = 'importDialog'; dlg.className = 'import-dialog';
+    const opts = Object.entries(SPECTRA).map(([k, v]) => `<option value="${k}">${escapeHTML(v.label)}</option>`).join('');
+    dlg.innerHTML = `<form method="dialog" class="import-form">
+      <h3>Importer « ${escapeHTML(file.name)} »</h3><p class="muted">Pour : <strong>${escapeHTML(m.name)}</strong>. Renseignez la source pour que le spectre soit traçable.</p>
+      <label>Type de spectre<select name="key">${opts}</select></label>
+      <label>Source (base de données, laboratoire, publication)<input name="sourceName" type="text"></label>
+      <label>URL de la source (https://…)<input name="sourceUrl" type="url" placeholder="https://"></label>
+      <label>Référence / identifiant du spectre<input name="citation" type="text"></label>
+      <label>Conditions expérimentales<textarea name="conditions" rows="2"></textarea></label>
+      <div class="two"><label>Unité axe X<input name="xUnit" type="text"></label><label>Unité axe Y<input name="yUnit" type="text"></label></div>
+      <div class="actions"><button type="button" value="cancel" class="btn-cancel">Annuler</button><button type="submit" value="ok" class="btn-ok">Importer</button></div></form>`;
+    document.body.appendChild(dlg);
+    const f = dlg.querySelector('form'), g = n => f.elements[n];
+    const fill = () => {
+      const k = g('key').value, old = m.spectra?.[k] || {};
+      g('sourceName').value = old.source_name || meta.origin || '';
+      g('sourceUrl').value = old.source_url || '';
+      g('citation').value = old.citation || '';
+      g('conditions').value = old.conditions?.note || conditionsFrom(meta);
+      g('xUnit').value = old.x_unit || (k === 'ir' ? 'cm⁻¹' : k.startsWith('nmr') ? 'ppm' : 'nm');
+      g('yUnit').value = old.y_unit || SPECTRA[k].y;
+    };
+    g('key').value = guessSpectrumKey(file.name, meta); fill();
+    g('key').addEventListener('change', fill);
+    let result = null;
+    f.addEventListener('submit', () => { result = Object.fromEntries(new FormData(f)); });
+    dlg.querySelector('.btn-cancel').addEventListener('click', () => dlg.close());
+    dlg.addEventListener('close', () => { dlg.remove(); resolve(result); });
+    dlg.showModal();
+  });
+}
+
 async function importSpectrumFile(file) {
   const m = molecules.find(item => item.id === selectedId);
   if (!m) { alert('Choisissez d’abord un médicament.'); return; }
-  const choice = prompt('Pour quel spectre importer ce fichier ?\n1 = IR\n2 = RMN ¹H\n3 = RMN ¹³C\n4 = UV-Visible', '1');
-  const key = ({'1':'ir','2':'nmr_1h','3':'nmr_13c','4':'uv_vis'})[choice];
-  if (!key) return;
   try {
     const text = await file.text();
     const parsedPoints = parseSpectrumFile(text, file.name);
+    const jcampMetadata = extractJcampMetadata(text);
+    const form = await openImportDialog(file, jcampMetadata, m);
+    if (!form) return;
+    const key = form.key;
     const points = validateSpectrumPoints(key, parsedPoints);
     const jcampHeader = text.match(/^##XYDATA=\s*(.*)$/im);
     const jcampVariableList = jcampHeader?.[1]?.trim().toUpperCase() || '';
     const jcampChannel = parsedPoints.channel || (/\(X\+\+\(R\.\.R\)\)/.test(jcampVariableList) ? 'real' : /\(X\+\+\(I\.\.I\)\)/.test(jcampVariableList) ? 'imaginary' : null);
-    const jcampMetadata = extractJcampMetadata(text);
     const old = m.spectra?.[key] || {};
-    const sourceName = prompt('Nom exact de la source (base de données, laboratoire ou publication). Laissez vide si inconnu :', old.source_name || jcampMetadata.origin || '');
-    const sourceUrlInput = prompt('URL directe de la source ou de la publication (https://…). Laissez vide si inconnue :', old.source_url || '');
-    const sourceUrl = sourceUrlInput && /^https?:\/\//i.test(sourceUrlInput.trim()) ? sourceUrlInput.trim() : null;
-    const citation = prompt('Référence bibliographique / identifiant du spectre (auteur, année, ID…). Laissez vide si inconnu :', old.citation || '');
-    const detectedConditions = [jcampMetadata.solvent && `Solvant: ${jcampMetadata.solvent}`, jcampMetadata.observe_frequency && `Fréquence: ${jcampMetadata.observe_frequency}`, jcampMetadata.nucleus && `Noyau: ${jcampMetadata.nucleus}`, jcampMetadata.instrument && `Appareil: ${jcampMetadata.instrument}`, jcampMetadata.scans && `Accumulations: ${jcampMetadata.scans}`, jcampMetadata.pulse_sequence && `Séquence: ${jcampMetadata.pulse_sequence}`].filter(Boolean).join('; ');
-    const conditions = prompt('Conditions expérimentales disponibles (solvant/état, température, appareil, résolution…). Laissez vide si inconnues :', old.conditions?.note || detectedConditions);
-    const xUnitDefault = old.x_unit || (key==='ir'?'cm⁻¹':key.startsWith('nmr')?'ppm':'nm');
-    const xUnit = prompt('Unité de l’axe X — vérifiez dans le fichier source :', xUnitDefault) || xUnitDefault;
-    const yUnitDefault = old.y_unit || (key === 'ir' ? 'Transmittance (%) ou absorbance — à confirmer' : key === 'uv_vis' ? 'Absorbance — à confirmer' : 'Intensité (u.a.) — à confirmer');
-    const yUnit = prompt('Unité / type de signal de l’axe Y — vérifiez dans le fichier source :', yUnitDefault) || yUnitDefault;
+    const sourceName = form.sourceName;
+    const sourceUrl = /^https?:\/\//i.test(form.sourceUrl || '') ? form.sourceUrl.trim() : null;
+    const citation = form.citation;
+    const conditions = form.conditions;
+    const xUnit = form.xUnit || (key==='ir'?'cm⁻¹':key.startsWith('nmr')?'ppm':'nm');
+    const yUnit = form.yUnit || 'Intensité (u.a.) — à confirmer';
     const metadataComplete = Boolean(sourceName?.trim() && sourceUrl && citation?.trim() && conditions?.trim() && xUnit.trim() && yUnit.trim() && !/à confirmer|unknown|inconnu/i.test(`${xUnit} ${yUnit}`));
     sessionImports[`${m.id}:${key}`] = {
       ...old,
