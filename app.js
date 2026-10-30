@@ -15,12 +15,70 @@ const escapeHTML = (value) => String(value ?? "").replace(/[&<>"']/g, c => ({
   "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
 }[c]));
 
+const APP_VERSION = "1.0.0";
+// --- IndexedDB : catalogue + spectres importés persistants (hors ligne, rapide) ---
+const DB_NAME = "pharmaspectra", DB_VERSION = 1;
+const idb = {
+  _db: null,
+  open() {
+    if (this._db) return Promise.resolve(this._db);
+    return new Promise((resolve, reject) => {
+      if (!("indexedDB" in window)) return reject(new Error("IndexedDB indisponible"));
+      const req = indexedDB.open(DB_NAME, DB_VERSION);
+      req.onupgradeneeded = () => {
+        const db = req.result;
+        if (!db.objectStoreNames.contains("molecules")) db.createObjectStore("molecules", { keyPath: "id" });
+        if (!db.objectStoreNames.contains("imports")) db.createObjectStore("imports", { keyPath: "key" });
+        if (!db.objectStoreNames.contains("meta")) db.createObjectStore("meta", { keyPath: "key" });
+      };
+      req.onsuccess = () => { this._db = req.result; resolve(this._db); };
+      req.onerror = () => reject(req.error);
+    });
+  },
+  async tx(store, mode, fn) {
+    const db = await this.open();
+    return new Promise((resolve, reject) => {
+      const t = db.transaction(store, mode), s = t.objectStore(store);
+      const out = fn(s);
+      t.oncomplete = () => resolve(out && "result" in out ? out.result : undefined);
+      t.onerror = t.onabort = () => reject(t.error);
+    });
+  },
+  getAll: (store) => idb.tx(store, "readonly", s => s.getAll()),
+  get: (store, key) => idb.tx(store, "readonly", s => s.get(key)),
+  put: (store, value) => idb.tx(store, "readwrite", s => s.put(value)),
+  putMany: (store, values) => idb.tx(store, "readwrite", s => { values.forEach(v => s.put(v)); }),
+  del: (store, key) => idb.tx(store, "readwrite", s => s.delete(key))
+};
+async function loadCatalog() {
+  // Le JSON est la référence : on resynchronise IndexedDB à chaque nouvelle version des données.
+  let fromJson = null;
+  try {
+    const response = await fetch(DATA_URL, { cache: "no-cache" });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    fromJson = await response.json();
+  } catch (e) { console.warn("JSON indisponible, lecture du cache IndexedDB", e); }
+  try {
+    const meta = await idb.get("meta", "dataVersion");
+    if (fromJson && (!meta || meta.value !== fromJson.dataVersion)) {
+      await idb.putMany("molecules", fromJson.molecules);
+      await idb.put("meta", { key: "dataVersion", value: fromJson.dataVersion });
+    }
+    const imports = await idb.getAll("imports");
+    imports.forEach(({ key, ...spec }) => { sessionImports[key] = spec; });
+    const cached = await idb.getAll("molecules");
+    if (cached.length) {
+      const order = (fromJson?.molecules || cached).map(m => m.id);
+      return cached.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
+    }
+  } catch (e) { console.warn("IndexedDB non utilisé :", e); }
+  if (fromJson) return fromJson.molecules || [];
+  throw new Error("Aucune source de données");
+}
+
 async function init() {
   try {
-    const response = await fetch(DATA_URL);
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const data = await response.json();
-    molecules = Array.isArray(data.molecules) ? data.molecules : [];
+    molecules = await loadCatalog();
     $("#countLabel").textContent = `${molecules.length} molécules dans le catalogue`;
     $("#sideCount").textContent = molecules.length;
     renderList();
@@ -39,6 +97,7 @@ function renderList(query = "") {
     [m.name, ...(m.synonyms || []), m.formula, m.category, m.id]
       .filter(Boolean).some(v => String(v).toLocaleLowerCase("fr").includes(q))
   );
+  $("#countLabel").textContent = q ? `${filtered.length} résultat(s) sur ${molecules.length}` : `${molecules.length} molécules dans le catalogue`;
   $("#moleculeList").innerHTML = filtered.length ? filtered.map(m => `
     <button class="molecule-item ${m.id === selectedId ? "active" : ""}" data-id="${escapeHTML(m.id)}">
       <span class="mol-avatar">${escapeHTML((m.name || "??").slice(0,2).toUpperCase())}</span>
@@ -598,8 +657,9 @@ async function importSpectrumFile(file) {
       y_unit: yUnit.trim(),
       jcamp_metadata: jcampMetadata
     };
+    idb.put('imports', { key: `${m.id}:${key}`, ...sessionImports[`${m.id}:${key}`] }).catch(e => console.warn('Sauvegarde IndexedDB impossible', e));
     renderDetails(m);
-    alert(`${points.length} points importés${parsedPoints.channels ? ` (canaux NTUPLES : ${Object.keys(parsedPoints.channels).join(' + ')})` : jcampChannel ? ` (canal ${jcampChannel === 'real' ? 'réel' : 'imaginaire'})` : ''} pour ${SPECTRA[key].label}. Les points ont passé les contrôles numériques et de plage X; ce n’est pas une certification scientifique. Métadonnées ${metadataComplete ? 'renseignées, à vérifier contre le fichier source' : 'incomplètes : provenance/conditions/unités à compléter'}. Les données restent dans cette session jusqu’à export JSON.`);
+    alert(`${points.length} points importés${parsedPoints.channels ? ` (canaux NTUPLES : ${Object.keys(parsedPoints.channels).join(' + ')})` : jcampChannel ? ` (canal ${jcampChannel === 'real' ? 'réel' : 'imaginaire'})` : ''} pour ${SPECTRA[key].label}. Les points ont passé les contrôles numériques et de plage X; ce n’est pas une certification scientifique. Métadonnées ${metadataComplete ? 'renseignées, à vérifier contre le fichier source' : 'incomplètes : provenance/conditions/unités à compléter'}. Elles sont enregistrées dans la base IndexedDB de ce navigateur (export JSON possible).`);
   } catch (err) {
     alert(`Import impossible : ${err.message}`);
   }

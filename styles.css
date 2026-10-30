@@ -76,3 +76,9 @@ body{background:#f6f9fd;color:#1b3b63;font-family:Arial,"DM Sans",sans-serif;fon
 .phase-control-row input[type=range]{flex:1;min-width:130px;accent-color:#147d73}
 .phase-control-row output{font-variant-numeric:tabular-nums;min-width:38px;font-size:.82rem;font-weight:700;color:#147d73}
 .phase-controls .phase1-label{display:block;margin-top:10px;font-size:.82rem;font-weight:650;color:var(--ink,#294447)}
+
+/* v1.0.0 — corrections */
+.sidebar{top:76px;height:calc(100vh - 76px)}
+.molecule-list{counter-reset:mol}.molecule-item .mol-label strong::before{counter-increment:mol;content:counter(mol) ". ";color:#7d93ad;font-weight:400}
+@media(max-width:850px){.sidebar{top:auto;height:auto}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

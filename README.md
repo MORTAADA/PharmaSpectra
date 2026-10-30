@@ -1,4 +1,4 @@
-# PharmaSpectra — version 0.9.1
+# PharmaSpectra — version 1.0.0
 
 Prototype local HTML/CSS/JavaScript d’une base de données spectrale de médicaments. Les données chimiques et spectrales doivent rester liées à des sources vérifiables.
 
