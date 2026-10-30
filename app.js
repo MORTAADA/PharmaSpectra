@@ -157,7 +157,7 @@ function applyPhaseCorrection(realPoints, imaginaryPoints, phase0Degrees, phase1
 
 function renderDetails(m) {
   const structure = m.structure_image_url
-    ? `<img src="${escapeHTML(m.structure_image_url)}" alt="Structure chimique de ${escapeHTML(m.name)}" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="structure-fallback" hidden>Image indisponible<br><a href="${escapeHTML(m.chemical_data_source?.url || m.pubchem_search_url || 'https://pubchem.ncbi.nlm.nih.gov/')}" target="_blank" rel="noreferrer">Ouvrir la source</a></span>`
+    ? `<img src="${escapeHTML(m.structure_image_url)}" alt="Structure chimique 2D complète de ${escapeHTML(m.name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="structure-fallback" hidden>Image de structure indisponible. Vérifiez votre connexion puis rechargez la fiche.</span>`
     : `<span class="structure-fallback">Structure chimique non intégrée</span>`;
   const spectrumCount = Object.values(m.spectra || {}).filter(spec => Array.isArray(spec?.points) && spec.points.length >= 2 && spec.source_url && spec.source_name).length;
   const property = (label, value, suffix = "") => `<div class="property"><span>${label}</span><strong>${valueOrMissing(value, suffix)}</strong></div>`;
@@ -166,11 +166,11 @@ function renderDetails(m) {
   $('#detailPanel').innerHTML = `
     <div class="profile-header">
       <div class="drug-heading"><div class="drug-icon">◈<small>#${String(molecules.findIndex(x=>x.id===m.id)+1).padStart(2,'0')}</small></div><div><h2>${escapeHTML(m.name)}</h2><p>${escapeHTML(m.iupac_name || m.category || "Fiche moléculaire")}</p><span class="category-chip">${escapeHTML(m.category || "Médicament")}</span></div></div>
-      <div class="profile-actions"><a class="btn light-btn" href="${escapeHTML(m.pubchem_search_url || "https://pubchem.ncbi.nlm.nih.gov/")}" target="_blank" rel="noreferrer">Voir sur PubChem ↗</a></div>
+      <div class="profile-actions"><span class="btn light-btn" aria-label="Structure chimique affichée dans PharmaSpectra">Structure intégrée · 2D HD</span></div>
     </div>
     <nav class="tabs" role="tablist" aria-label="Sections de la fiche">${[["overview","Vue générale"],["spectra","Spectres"],["references","Références"],["files","Fichiers"]].map(([id,l])=>`<button type="button" role="tab" class="tab ${id===activeTab?"active":""}" data-tab="${id}" aria-selected="${id===activeTab}">${l}</button>`).join("")}</nav>
     <div class="chemistry-summary">
-      <section class="chemistry-card structure-card"><h3 class="section-title">Structure chimique</h3><div class="structure-box structure-box-large">${structure}</div><a class="inline-link" href="${escapeHTML(m.chemical_data_source?.url || m.pubchem_search_url || "https://pubchem.ncbi.nlm.nih.gov/")}" target="_blank" rel="noreferrer">Consulter la structure ↗</a></section>
+      <section class="chemistry-card structure-card"><h3 class="section-title">Structure chimique</h3><div class="structure-box structure-box-large">${structure}</div><p class="structure-caption">Représentation 2D complète · affichage intégré à PharmaSpectra</p></section>
       <section class="chemistry-card composition-card"><h3 class="section-title">Composition chimique</h3><div class="property-list">${property("Formule moléculaire", m.formula)}${property("Masse molaire", m.molar_mass_g_mol, " g/mol")}${property("Numéro CAS", m.cas_number)}${property("Nom IUPAC", m.iupac_name)}</div>${m.chemical_data_source ? `<p class="citation">Source : <strong>${escapeHTML(m.chemical_data_source.name)}</strong></p>` : ""}</section>
     </div>
     <section id="spectraSection" class="spectra-section"><div class="spectra-head"><div><p class="eyebrow">ANALYSE SPECTRALE</p><h3 class="section-title">Spectres analytiques</h3></div><span class="pill">${spectrumCount} spectre(s) numérique(s) intégré(s)</span></div><div class="spectra-grid">${cards}</div><div class="warning">ⓘ Les spectres ne sont tracés que si des points numériques sont disponibles. Les listes de pics ne sont pas des spectres complets. Les imports locaux sont temporaires et doivent être vérifiés avant interprétation.</div></section>

@@ -99,3 +99,12 @@ body{background:#f6f9fd;color:#1b3b63;font-family:Arial,"DM Sans",sans-serif;fon
 .import-dialog{border:0;border-radius:12px;padding:0;width:min(520px,94vw);box-shadow:0 20px 60px rgba(10,30,60,.35)}.import-dialog::backdrop{background:rgba(10,30,60,.45)}
 .import-form{display:grid;gap:10px;padding:22px}.import-form h3{margin:0;color:#173d69;font-size:16px;overflow-wrap:anywhere}.import-form p{margin:0;font-size:12px}.import-form label{display:grid;gap:4px;font-size:11px;color:#55718f}.import-form input,.import-form select,.import-form textarea{font:13px Arial,sans-serif;padding:8px 10px;border:1px solid #cfdff1;border-radius:6px;color:#173d69}.import-form .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.import-form .actions{display:flex;justify-content:flex-end;gap:10px;margin-top:6px}
 .structure-box-large img{background:#fff;filter:brightness(1.06);mix-blend-mode:multiply}
+
+
+/* v1.0.3 — structures 2D HD intégrées, sans navigation externe */
+.structure-box-large{min-height:300px;max-height:440px;aspect-ratio:1.15/1;padding:14px;background:#fff;border:1px solid #dce8f5;border-radius:10px;overflow:hidden}
+.structure-box-large img{width:100%;height:100%;min-height:270px;object-fit:contain;object-position:center;background:#fff;filter:none;mix-blend-mode:normal}
+.structure-caption{margin:9px 2px 0;color:#68809a;font-size:10px;line-height:1.45}
+.structure-fallback{display:block;padding:18px;color:#71849b;font-size:12px;line-height:1.5;text-align:center}
+@media(max-width:850px){.structure-box-large{min-height:260px;max-height:360px}.structure-box-large img{min-height:230px}}
+@media(max-width:560px){.structure-box-large{min-height:230px;max-height:300px;aspect-ratio:1/1;padding:8px}.structure-box-large img{min-height:210px}}
