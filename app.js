@@ -125,6 +125,14 @@ function selectMolecule(id, options = {}) {
   }
 }
 
+function molecularFormulaHTML(formula) {
+  if (formula === null || formula === undefined || formula === "") {
+    return `<span class="missing">Non renseigné</span>`;
+  }
+  // Keep the molecular formula unchanged in the data; format only its display.
+  return escapeHTML(formula).replace(/(\d+)/g, "<sub>$1</sub>");
+}
+
 function valueOrMissing(value, suffix = "") {
   return value !== null && value !== undefined && value !== ""
     ? `${escapeHTML(value)}${suffix}`
@@ -155,10 +163,72 @@ function applyPhaseCorrection(realPoints, imaginaryPoints, phase0Degrees, phase1
   return { real: correctedReal, imaginary: correctedImaginary };
 }
 
+let viewer3dLibraryPromise = null;
+const active3DViewers = new Map();
+
+function load3Dmol() {
+  if (window.$3Dmol) return Promise.resolve(window.$3Dmol);
+  if (viewer3dLibraryPromise) return viewer3dLibraryPromise;
+  viewer3dLibraryPromise = new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = "https://3Dmol.org/build/3Dmol-min.js";
+    script.async = true;
+    script.onload = () => window.$3Dmol ? resolve(window.$3Dmol) : reject(new Error("La bibliothèque 3D n’a pas pu démarrer."));
+    script.onerror = () => reject(new Error("Impossible de charger le moteur 3D. Vérifiez la connexion Internet."));
+    document.head.appendChild(script);
+  });
+  return viewer3dLibraryPromise;
+}
+
+function setupStructureViewer(molecule) {
+  const panel = $("#detailPanel");
+  const buttons = panel.querySelectorAll("[data-structure-mode]");
+  const view2d = panel.querySelector(".structure-2d-view");
+  const view3d = panel.querySelector(".structure-3d-view");
+  let loaded = false;
+  buttons.forEach(button => button.addEventListener("click", async () => {
+    const is3d = button.dataset.structureMode === "3d";
+    buttons.forEach(item => item.classList.toggle("active", item === button));
+    view2d.hidden = is3d;
+    view3d.hidden = !is3d;
+    if (!is3d || loaded) {
+      if (is3d && active3DViewers.has(molecule.id)) active3DViewers.get(molecule.id).resize();
+      return;
+    }
+    loaded = true;
+    const status = $("#viewer-status-" + molecule.id);
+    const target = $("#viewer3d-" + molecule.id);
+    if (!molecule.pubchem_cid) {
+      status.textContent = "Identifiant PubChem absent : modèle 3D indisponible pour cette molécule.";
+      return;
+    }
+    status.textContent = "Chargement des coordonnées 3D…";
+    try {
+      const $3Dmol = await load3Dmol();
+      const response = await fetch(`https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${encodeURIComponent(molecule.pubchem_cid)}/SDF?record_type=3d`);
+      if (!response.ok) throw new Error(`PubChem a répondu avec le statut ${response.status}.`);
+      const sdf = await response.text();
+      if (!sdf.includes("M  END")) throw new Error("Aucune structure 3D SDF valide n’a été reçue.");
+      const viewer = $3Dmol.createViewer(target, { backgroundColor: "#f7fbff", antialias: true });
+      viewer.addModel(sdf, "sdf");
+      viewer.setStyle({}, { stick: { radius: 0.16, colorscheme: "Jmol" }, sphere: { scale: 0.24, colorscheme: "Jmol" } });
+      viewer.zoomTo();
+      viewer.zoom(0.9);
+      viewer.render();
+      active3DViewers.set(molecule.id, viewer);
+      status.textContent = "Modèle 3D chargé · coordonnées fournies par PubChem.";
+      view3d.querySelector('[data-viewer-action="reset"]').addEventListener("click", () => { viewer.zoomTo(); viewer.render(); });
+    } catch (error) {
+      status.textContent = `${error.message} La vue 2D reste disponible.`;
+      loaded = false;
+    }
+  }));
+}
+
 function renderDetails(m) {
-  const structure = m.structure_image_url
-    ? `<img src="${escapeHTML(m.structure_image_url)}" alt="Structure chimique 2D complète de ${escapeHTML(m.name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="structure-fallback" hidden>Image de structure indisponible. Vérifiez votre connexion puis rechargez la fiche.</span>`
-    : `<span class="structure-fallback">Structure chimique non intégrée</span>`;
+  const structure = m.structure_image_data
+    ? `<img id="structure2d-${escapeHTML(m.id)}" src="${m.structure_image_data}" alt="Structure chimique 2D complète de ${escapeHTML(m.name)}" loading="lazy" decoding="async"><span class="structure-fallback" hidden>Image 2D indisponible.</span>`
+    : `<span class="structure-fallback">Image moléculaire non encore intégrée aux données locales.</span>`;
   const spectrumCount = Object.values(m.spectra || {}).filter(spec => Array.isArray(spec?.points) && spec.points.length >= 2 && spec.source_url && spec.source_name).length;
   const property = (label, value, suffix = "") => `<div class="property"><span>${label}</span><strong>${valueOrMissing(value, suffix)}</strong></div>`;
   const spectrumKeys = Object.keys(SPECTRA);
@@ -170,13 +240,14 @@ function renderDetails(m) {
     </div>
     <nav class="tabs" role="tablist" aria-label="Sections de la fiche">${[["overview","Vue générale"],["spectra","Spectres"],["references","Références"],["files","Fichiers"]].map(([id,l])=>`<button type="button" role="tab" class="tab ${id===activeTab?"active":""}" data-tab="${id}" aria-selected="${id===activeTab}">${l}</button>`).join("")}</nav>
     <div class="chemistry-summary">
-      <section class="chemistry-card structure-card"><h3 class="section-title">Structure chimique</h3><div class="structure-box structure-box-large">${structure}</div><p class="structure-caption">Représentation 2D complète · affichage intégré à PharmaSpectra</p></section>
-      <section class="chemistry-card composition-card"><h3 class="section-title">Composition chimique</h3><div class="property-list">${property("Formule moléculaire", m.formula)}${property("Masse molaire", m.molar_mass_g_mol, " g/mol")}${property("Numéro CAS", m.cas_number)}${property("Nom IUPAC", m.iupac_name)}</div>${m.chemical_data_source ? `<p class="citation">Source : <strong>${escapeHTML(m.chemical_data_source.name)}</strong></p>` : ""}</section>
+      <section class="chemistry-card structure-card"><h3 class="section-title">Structure moléculaire</h3><div class="structure-view-controls" role="group" aria-label="Mode d’affichage de la structure"><button type="button" class="structure-mode-btn active" data-structure-mode="2d">2D · Formule développée</button><button type="button" class="structure-mode-btn" data-structure-mode="3d">3D · Modèle interactif</button></div><div class="structure-box structure-box-large structure-2d-view">${structure}</div><div class="structure-3d-view" id="structure3d-${escapeHTML(m.id)}" hidden><div class="structure-3d-canvas" id="viewer3d-${escapeHTML(m.id)}"></div><div class="viewer-status" id="viewer-status-${escapeHTML(m.id)}">Le modèle 3D sera chargé à la demande.</div><div class="viewer-controls"><button type="button" data-viewer-action="reset">Réinitialiser la vue</button><span>Glisser pour tourner · molette pour zoomer</span></div></div><p class="structure-caption">2D et modèle 3D interactif · représentation 3D calculée fournie par PubChem</p></section>
+      <section class="chemistry-card composition-card"><h3 class="section-title">Composition chimique</h3><div class="property-list">${property("Formule moléculaire", molecularFormulaHTML(m.formula))}${property("Masse molaire", m.molar_mass_g_mol, " g/mol")}${property("Numéro CAS", m.cas_number)}${property("Nom IUPAC", m.iupac_name)}</div>${m.chemical_data_source ? `<p class="citation">Source : <strong>${escapeHTML(m.chemical_data_source.name)}</strong></p>` : ""}</section>
     </div>
     <section id="spectraSection" class="spectra-section"><div class="spectra-head"><div><p class="eyebrow">ANALYSE SPECTRALE</p><h3 class="section-title">Spectres analytiques</h3></div><span class="pill">${spectrumCount} spectre(s) numérique(s) intégré(s)</span></div><div class="spectra-grid">${cards}</div><div class="warning">ⓘ Les spectres ne sont tracés que si des points numériques sont disponibles. Les listes de pics ne sont pas des spectres complets. Les imports locaux sont temporaires et doivent être vérifiés avant interprétation.</div></section>
     <div class="tab-pane pane-references">${renderSourceExplorer(m)}</div>
     <section class="tab-pane pane-files">${renderFilesPanel(m)}</section>`;
   $("#detailPanel").dataset.tab = activeTab;
+  setupStructureViewer(m);
   $("#detailPanel").querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => { activeTab = b.dataset.tab; renderDetails(m); }));
   for (const key of Object.keys(SPECTRA)) {
     const spec = sessionImports[`${m.id}:${key}`] || m.spectra?.[key];

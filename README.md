@@ -410,3 +410,26 @@ Références : recommandations de prétraitement RMN sur la distinction PH0/PH1 
 - PH1 n'est pas une correction automatique : le réglage manuel doit être évalué visuellement selon le spectre et le sens d'acquisition. Aucun nouveau point spectral expérimental n'est ajouté.
 
 Convention d'interface : PH1 indique la variation totale entre les extrémités; le point pivot est au milieu de la séquence de points. Cette convention explicite facilite la reproductibilité, mais peut différer des conventions de signe/position de pivot de certains logiciels RMN.
+
+
+## Version 1.0.4 — visualiseur moléculaire 3D
+
+- Ajout d'un basculeur 2D / 3D dans la fiche de chaque médicament.
+- Le modèle 3D est chargé à la demande depuis les coordonnées SDF 3D de PubChem et rendu dans l'application avec 3Dmol.js.
+- Rotation à la souris ou au toucher, zoom et réinitialisation de la vue.
+- La vue 2D reste disponible si le service distant ou le moteur 3D ne répond pas.
+- Une connexion Internet est nécessaire pour charger la bibliothèque 3Dmol.js et les coordonnées 3D PubChem.
+- Les identifiants PubChem sont conservés dans `data/molecules.json`.
+
+
+## Intégration des images moléculaires hors ligne (v1.0.6)
+
+Les images 2D sont stockées directement dans `data/molecules.json` sous forme de données PNG Base64 (`structure_image_data`). L'interface n'utilise plus d'URL externe pour afficher les structures.
+
+Pour récupérer et intégrer les images authentiques (connexion Internet nécessaire uniquement pendant cette étape), exécuter depuis le dossier du projet :
+
+```bash
+node scripts/embed-structure-images.mjs
+```
+
+Après réussite du script, le catalogue contient les images et leur affichage ne nécessite plus Internet. Le script vérifie le format PNG et indique explicitement les molécules dont l'image n'a pas pu être récupérée.

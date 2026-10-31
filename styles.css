@@ -108,3 +108,15 @@ body{background:#f6f9fd;color:#1b3b63;font-family:Arial,"DM Sans",sans-serif;fon
 .structure-fallback{display:block;padding:18px;color:#71849b;font-size:12px;line-height:1.5;text-align:center}
 @media(max-width:850px){.structure-box-large{min-height:260px;max-height:360px}.structure-box-large img{min-height:230px}}
 @media(max-width:560px){.structure-box-large{min-height:230px;max-height:300px;aspect-ratio:1/1;padding:8px}.structure-box-large img{min-height:210px}}
+
+/* v1.0.4 — visualiseur moléculaire 3D interactif */
+.structure-view-controls{display:flex;gap:7px;flex-wrap:wrap;padding:10px 12px;background:#f5f9fd;border-bottom:1px solid #e0eaf5}
+.structure-mode-btn,.viewer-controls button{border:1px solid #cbdced;background:#fff;color:#315779;border-radius:7px;padding:7px 11px;font:600 11px "DM Sans",sans-serif;cursor:pointer}
+.structure-mode-btn.active{background:#176fc0;border-color:#176fc0;color:#fff}
+.structure-3d-view{padding:10px;background:#f7fbff}
+.structure-3d-view[hidden],.structure-2d-view[hidden]{display:none!important}
+.structure-3d-canvas{height:340px;width:100%;min-width:0;background:#f7fbff;border:1px solid #dce8f5;border-radius:8px;overflow:hidden;position:relative}
+.viewer-status{font-size:10px;color:#5d7692;padding:8px 2px;min-height:28px}
+.viewer-controls{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.viewer-controls span{font-size:10px;color:#71849b}
+@media(max-width:560px){.structure-3d-canvas{height:270px}.structure-view-controls{gap:5px}.structure-mode-btn{font-size:10px;padding:7px 8px}}
